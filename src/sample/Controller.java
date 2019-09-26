@@ -1,3 +1,8 @@
+/**
+ * @author Bernard Georges
+ * @date 9/26/2019
+ */
+
 package sample;
 
 import java.net.URL;
@@ -17,6 +22,12 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
+/**
+ * Controller class to control results of actions being done such as a with a button click. It also
+ * establishes a connection to the database, enabling items to be added to the database. It will
+ * eventually enable information to be pulled from a per instance input or from the database,
+ * depending on the scope.
+ */
 public class Controller {
 
   @FXML
@@ -36,6 +47,7 @@ public class Controller {
 
 
   }
+
 
   @FXML
   public void addProductClicked() {
