@@ -8,6 +8,7 @@ package sample;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -44,6 +45,12 @@ public class Controller {
   @FXML
   public void initialize() {
     cbbQuantity.getItems().addAll(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
+    //for (int p)
+    for (ItemType it: ItemType.values()){
+      System.out.println(it);
+      cbbItemType.getItems().add(it.toString());
+    }
+
 
 
   }
@@ -51,9 +58,9 @@ public class Controller {
 
   @FXML
   public void addProductClicked() {
-    System.out.println("Product Added");
     String prodName = txtFProductName.getText();
     String prodMan = txtFManufacturer.getText();
+    String chosenItem= cbbItemType.getValue();
 
     final String JDBC_DRIVER = "org.h2.Driver";
     final String DB_URL = "jdbc:h2:./res/production";
@@ -74,9 +81,13 @@ public class Controller {
       //STEP 3: Execute a query
       stmt = conn.createStatement();
 
+      //attempting to use prepared statement as I was getting issues with
+      //using the sql statements properly to input the information
+      /*PreparedStatement getValues = conn.prepareStatement("INSERT INTO PRODUCT(name, type, manufacturer) VALUES ('" + prodName + "',"
+          + chosenItem + ',' + prodMan);
+      getValues.executeUpdate();*/
       String sql =
-          "INSERT INTO PRODUCT(name, type, manufacturer ) VALUES ('" + prodName + "', " + "'AUDIO'"
-              + ", '" + prodMan + "')";
+          "INSERT INTO PRODUCT(name, type, manufacturer ) VALUES ('"+ prodName + "', '" +chosenItem + "', '" + prodMan + "')";
 
       stmt.executeUpdate(sql);
       /*
