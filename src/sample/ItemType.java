@@ -1,17 +1,18 @@
 package sample;
 
 public enum ItemType {
-  AUDIO ("AU"),
+  AUDIO("AU"),
   VISUAL("VI"),
-  AUDIOMOBILE ("AM"),
-  VISUALMOBILE ("VM");
+  AUDIOMOBILE("AM"),
+  VISUALMOBILE("VM");
 
   final String ITEMTYPE;
-  ItemType (String itemType){
+
+  ItemType(String itemType) {
     ITEMTYPE = itemType;
   }
 
-  public String getITEMTYPE(){
+  public String getIemType() {
     return ITEMTYPE;
   }
 }

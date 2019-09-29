@@ -46,7 +46,7 @@ public class Controller {
   public void initialize() {
     cbbQuantity.getItems().addAll(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
     //for (int p)
-    for (ItemType it: ItemType.values()){
+    for (ItemType it: ItemType.values()) {
       System.out.println(it);
       cbbItemType.getItems().add(it.toString());
     }
@@ -60,7 +60,7 @@ public class Controller {
   public void addProductClicked() {
     String prodName = txtFProductName.getText();
     String prodMan = txtFManufacturer.getText();
-    String chosenItem= cbbItemType.getValue();
+    String chosenItem = cbbItemType.getValue();
 
     final String JDBC_DRIVER = "org.h2.Driver";
     final String DB_URL = "jdbc:h2:./res/production";
@@ -83,11 +83,14 @@ public class Controller {
 
       //attempting to use prepared statement as I was getting issues with
       //using the sql statements properly to input the information
-      /*PreparedStatement getValues = conn.prepareStatement("INSERT INTO PRODUCT(name, type, manufacturer) VALUES ('" + prodName + "',"
+      /*PreparedStatement getValues =
+          conn.prepareStatement("INSERT INTO PRODUCT(name, type, manufacturer)
+                 VALUES ('" + prodName + "',"
           + chosenItem + ',' + prodMan);
       getValues.executeUpdate();*/
       String sql =
-          "INSERT INTO PRODUCT(name, type, manufacturer ) VALUES ('"+ prodName + "', '" +chosenItem + "', '" + prodMan + "')";
+          "INSERT INTO PRODUCT(name, type, manufacturer ) "
+              + "VALUES ('" + prodName + "', '" + chosenItem + "', '" + prodMan + "')";
 
       stmt.executeUpdate(sql);
       /*
