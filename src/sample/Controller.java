@@ -39,7 +39,6 @@ public class Controller {
   private TextField txtFManufacturer;
   @FXML
   private ChoiceBox<String> cbbItemType;
-  //@FXML private
 
 
   @FXML
@@ -61,23 +60,24 @@ public class Controller {
     String prodMan = txtFManufacturer.getText();
     String chosenItem = cbbItemType.getValue();
 
-    final String JDBC_DRIVER = "org.h2.Driver";
-    final String DB_URL = "jdbc:h2:./res/production";
+    final String jdbcDriver = "org.h2.Driver";
+    final String db_Url = "jdbc:h2:./res/production";
 
     //  Database credentials
-    // to create a database username and password, type Create USER [username] WITH PASSWORD "[password]"
+    // to create a database username and password,
+    // type Create USER [username] WITH PASSWORD "[password]"
     // to allow the user to edit the database use GRANT ALTER ANY SCHEMA TO [username]; in console
-    final String USER = "loginname";
-    final String PASS = "passw0rd";
+    final String user = "loginname";
+    final String pass = "passw0rd";
     Connection conn = null;
     Statement stmt = null;
 
     try {
       // STEP 1: Register JDBC driver
-      Class.forName(JDBC_DRIVER);
+      Class.forName(jdbcDriver);
 
       //STEP 2: Open a connection
-      conn = DriverManager.getConnection(DB_URL, USER, PASS);
+      conn = DriverManager.getConnection(db_Url, user, pass);
 
       //STEP 3: Execute a query
       stmt = conn.createStatement();

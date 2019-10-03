@@ -6,13 +6,13 @@ public enum ItemType {
   AUDIOMOBILE("AM"),
   VISUALMOBILE("VM");
 
-  final String ITEMTYPE;
+  final String itemType;
 
   ItemType(String itemType) {
-    ITEMTYPE = itemType;
+    this.itemType = itemType;
   }
 
   public String getItemType() {
-    return ITEMTYPE;
+    return itemType;
   }
 }
