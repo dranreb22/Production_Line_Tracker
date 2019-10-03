@@ -1,6 +1,5 @@
 package sample;
 
-import javax.xml.namespace.QName;
 
 abstract class Product implements Item {
   private int id;
@@ -8,9 +7,12 @@ abstract class Product implements Item {
   private String manufacturer;
   private String name;
 
-  Product (String name){
+  Product (String name, String manufacturer, String type){
     this.name = name;
+    this.manufacturer = manufacturer;
+    this.type = type;
   }
+
 
   @Override
   public int getID(){
@@ -32,6 +34,14 @@ abstract class Product implements Item {
     this.manufacturer = manufacturer;
   }
 
+
+  public void setType(String type){
+    this.type = type;
+  }
+
+  public String getType(){
+    return type;
+  }
   @Override
   public String getManufacturer() {
     return manufacturer;
@@ -39,8 +49,8 @@ abstract class Product implements Item {
 
   @Override
   public String toString(){
-    return "Name: " + name + "/n"
-        + "Manufacturer: " + manufacturer + "/n"
+    return "Name: " + name + "\n"
+        + "Manufacturer: " + manufacturer + "\n"
         + "Type: " + type;
   }
 }

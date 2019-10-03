@@ -47,7 +47,7 @@ public class Controller {
     cbbQuantity.getItems().addAll(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
     //for (int p)
     for (ItemType it: ItemType.values()) {
-      System.out.println(it);
+      //System.out.println(it);
       cbbItemType.getItems().add(it.toString());
     }
 
@@ -66,8 +66,10 @@ public class Controller {
     final String DB_URL = "jdbc:h2:./res/production";
 
     //  Database credentials
-    final String USER = "";
-    final String PASS = "";
+    // to create a database username and password, type Create USER [username] WITH PASSWORD "[password]"
+    // to allow the user to edit the database use GRANT ALTER ANY SCHEMA TO [username]; in console
+    final String USER = "loginname";
+    final String PASS = "passw0rd";
     Connection conn = null;
     Statement stmt = null;
 
@@ -108,5 +110,8 @@ public class Controller {
     } catch (SQLException e) {
       e.printStackTrace();
     }
+
+    txtFProductName.clear();
+    txtFManufacturer.clear();
   }
 }

@@ -12,7 +12,7 @@ public enum ItemType {
     ITEMTYPE = itemType;
   }
 
-  public String getIemType() {
+  public String getItemType() {
     return ITEMTYPE;
   }
 }

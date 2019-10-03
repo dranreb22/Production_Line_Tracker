@@ -1,7 +1,7 @@
 GridPane {
-  -fx-background-color: black;
-}
+   -fx-background-color: black;
+ }
 
 TabPane {
-  -fx-background-color: blue;
+  -fx-background-color: orange;
 }
