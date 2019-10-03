@@ -9,14 +9,17 @@ public class AudioPlayer extends Product implements MultimediaControl {
     super(name, manufacturer, type);
     this.audioSpecification = audioSpecification;
   }
+
   @Override
   public void play() {
     System.out.println("Playing");
   }
+
   @Override
   public void stop() {
     System.out.println("Stopping");
   }
+
   @Override
   public void previous() {
     System.out.println("Going to previous track");
@@ -27,7 +30,7 @@ public class AudioPlayer extends Product implements MultimediaControl {
     System.out.println("Going to next track");
   }
 
-  public String toString(){
+  public String toString() {
     return super.toString() + "\n"
         + "Audio Spec: " + "\n"
         + "Type: ";

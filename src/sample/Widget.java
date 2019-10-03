@@ -5,7 +5,7 @@ import javax.naming.ldap.PagedResultsControl;
 public class Widget extends Product {
 
 
-  Widget(String name, ) {
+  Widget(String name,) {
     super(name);
   }
 

@@ -46,11 +46,10 @@ public class Controller {
   public void initialize() {
     cbbQuantity.getItems().addAll(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
     //for (int p)
-    for (ItemType it: ItemType.values()) {
+    for (ItemType it : ItemType.values()) {
       //System.out.println(it);
       cbbItemType.getItems().add(it.toString());
     }
-
 
 
   }
