@@ -12,6 +12,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 import javafx.application.Application;
 import javafx.fxml.FXML;
@@ -49,10 +50,12 @@ public class Controller {
       //System.out.println(it);
       cbbItemType.getItems().add(it.toString());
     }
-
-
+    initializeDb();
   }
 
+  public void initializeDb(){
+
+  }
 
   @FXML
   public void addProductClicked() {

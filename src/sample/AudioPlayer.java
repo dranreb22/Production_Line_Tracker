@@ -22,12 +22,12 @@ public class AudioPlayer extends Product implements MultimediaControl {
 
   @Override
   public void previous() {
-    System.out.println("Going to previous track");
+    System.out.println("Previous");
   }
 
   @Override
   public void next() {
-    System.out.println("Going to next track");
+    System.out.println("Next");
   }
 
   public String toString() {
