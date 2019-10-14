@@ -31,6 +31,9 @@ import javafx.stage.Stage;
  * depending on the scope.
  */
 public class Controller {
+  private Connection conn;
+  private PreparedStatement pstmt;
+  private ResultSet rset;
 
   @FXML
   private ComboBox<Integer> cbbQuantity;
@@ -53,16 +56,7 @@ public class Controller {
     initializeDb();
   }
 
-  public void initializeDb(){
-
-  }
-
-  @FXML
-  public void addProductClicked() {
-    String prodName = txtFProductName.getText();
-    String prodMan = txtFManufacturer.getText();
-    String chosenItem = cbbItemType.getValue();
-
+  private void initializeDb(){
     final String jdbcDriver = "org.h2.Driver";
     final String db_Url = "jdbc:h2:./res/production";
 
@@ -72,8 +66,7 @@ public class Controller {
     // to allow the user to edit the database use GRANT ALTER ANY SCHEMA TO [username]; in console
     final String user = "loginname";
     final String pass = "passw0rd";
-    Connection conn = null;
-    Statement stmt = null;
+
 
     try {
       // STEP 1: Register JDBC driver
@@ -82,36 +75,28 @@ public class Controller {
       //STEP 2: Open a connection
       conn = DriverManager.getConnection(db_Url, user, pass);
 
-      //STEP 3: Execute a query
-      stmt = conn.createStatement();
-
-      //attempting to use prepared statement as I was getting issues with
-      //using the sql statements properly to input the information
-      /*PreparedStatement getValues =
-          conn.prepareStatement("INSERT INTO PRODUCT(name, type, manufacturer)
-                 VALUES ('" + prodName + "',"
-          + chosenItem + ',' + prodMan);
-      getValues.executeUpdate();*/
-      String sql =
-          "INSERT INTO PRODUCT(name, type, manufacturer ) "
-              + "VALUES ('" + prodName + "', '" + chosenItem + "', '" + prodMan + "')";
-
-      stmt.executeUpdate(sql);
-      /*
-      while (rs.next()) {
-        System.out.println(rs.getString(1));
-      }
-      */
-
-      // STEP 4: Clean-up environment
-      stmt.close();
-      conn.close();
     } catch (ClassNotFoundException e) {
       e.printStackTrace();
 
     } catch (SQLException e) {
       e.printStackTrace();
     }
+  }
+
+  @FXML
+  public void addProductClicked() throws SQLException {
+    String prodName = txtFProductName.getText();
+    String prodMan = txtFManufacturer.getText();
+    String chosenItem = cbbItemType.getValue();
+
+    //STEP 3: Execute a query
+    String query = "INSERT INTO product(name, manufacturer, type) VALUES (?,?,?)";
+
+    pstmt = conn.prepareStatement(query);
+    pstmt.setString(1,prodName);
+    pstmt.setString(2, prodMan);
+    pstmt.setString(3,chosenItem);
+    pstmt.executeUpdate();
 
     txtFProductName.clear();
     txtFManufacturer.clear();
