@@ -21,6 +21,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
@@ -31,9 +32,11 @@ import javafx.stage.Stage;
  * depending on the scope.
  */
 public class Controller {
+
   private Connection conn;
   private PreparedStatement pstmt;
-  private ResultSet rset;
+  //private ResultSet rset;
+  private String query;
 
   @FXML
   private ComboBox<Integer> cbbQuantity;
@@ -43,6 +46,8 @@ public class Controller {
   private TextField txtFManufacturer;
   @FXML
   private ChoiceBox<String> cbbItemType;
+  @FXML
+  private TextArea textArea = new TextArea();
 
 
   @FXML
@@ -54,9 +59,15 @@ public class Controller {
       cbbItemType.getItems().add(it.toString());
     }
     initializeDb();
+    //Execute a query
+    ProductionRecord record = new ProductionRecord(0);
+
+    String productRecord = record.toString();
+
+    textArea.setText(productRecord);
   }
 
-  private void initializeDb(){
+  private void initializeDb() {
     final String jdbcDriver = "org.h2.Driver";
     final String db_Url = "jdbc:h2:./res/production";
 
@@ -66,7 +77,6 @@ public class Controller {
     // to allow the user to edit the database use GRANT ALTER ANY SCHEMA TO [username]; in console
     final String user = "loginname";
     final String pass = "passw0rd";
-
 
     try {
       // STEP 1: Register JDBC driver
@@ -83,19 +93,22 @@ public class Controller {
     }
   }
 
+
   @FXML
   public void addProductClicked() throws SQLException {
+    initializeDb();
     String prodName = txtFProductName.getText();
     String prodMan = txtFManufacturer.getText();
+
     String chosenItem = cbbItemType.getValue();
 
-    //STEP 3: Execute a query
-    String query = "INSERT INTO product(name, manufacturer, type) VALUES (?,?,?)";
+    //Execute a query
+    query = "INSERT INTO product(name, manufacturer, type) VALUES (?,?,?)";
 
     pstmt = conn.prepareStatement(query);
-    pstmt.setString(1,prodName);
+    pstmt.setString(1, prodName);
     pstmt.setString(2, prodMan);
-    pstmt.setString(3,chosenItem);
+    pstmt.setString(3, chosenItem);
     pstmt.executeUpdate();
 
     txtFProductName.clear();
