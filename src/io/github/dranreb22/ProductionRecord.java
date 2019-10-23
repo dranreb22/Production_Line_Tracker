@@ -1,13 +1,13 @@
-package sample;
+package io.github.dranreb22;
 
 import java.util.Date;
 
 public class ProductionRecord {
 
-  int productionNumber;
-  int productID;
-  String serialNumber;
-  Date dateProduced;
+  private int productionNumber;
+  private int productID;
+  private String serialNumber;
+  private Date dateProduced;
 
   ProductionRecord(int productID) {
     this.productID = productID;
@@ -22,6 +22,17 @@ public class ProductionRecord {
     this.productID = productID;
     this.serialNumber = serialNumber;
     this.dateProduced = dateProduced;
+  }
+
+  ProductionRecord(Product product, int count) {
+    String manufacturer = product.getManufacturer();
+    // String countInNumbers = String.valueOf(count);
+    String firstThree = manufacturer.substring(0, 3);
+    String itemCode = product.getItemType().getItemType();
+    String lastFive = String.format("%05d", count);
+    serialNumber = firstThree + itemCode + lastFive;
+    this.dateProduced = new Date();
+
   }
 
   public int getProductID() {
@@ -58,9 +69,9 @@ public class ProductionRecord {
 
   @Override
   public String toString() {
-    return "Production Num: 0 "
-        + "Product ID: "
-        + "Serial Num: 0 "
-        + "Date: " + dateProduced;
+    return "Prod. Num: " + productionNumber
+        + " Product ID: " + productID
+        + " Serial Num: " + serialNumber
+        + " Date: " + dateProduced;
   }
 }

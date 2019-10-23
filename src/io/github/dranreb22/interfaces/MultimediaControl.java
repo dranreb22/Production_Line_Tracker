@@ -1,4 +1,4 @@
-package sample;
+package io.github.dranreb22.interfaces;
 
 public interface MultimediaControl {
 

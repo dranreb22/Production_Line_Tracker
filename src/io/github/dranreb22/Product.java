@@ -1,17 +1,19 @@
-package sample;
+package io.github.dranreb22;
 
+
+import io.github.dranreb22.interfaces.Item;
 
 abstract class Product implements Item {
 
   private int id;
-  private String type;
+  private ItemType itemType;
   private String manufacturer;
   private String name;
 
-  Product(String name, String manufacturer, String type) {
+  Product(String name, String manufacturer, ItemType type) {
     this.name = name;
     this.manufacturer = manufacturer;
-    this.type = type;
+    this.itemType = type;
   }
 
 
@@ -36,12 +38,12 @@ abstract class Product implements Item {
   }
 
 
-  public void setType(String type) {
-    this.type = type;
+  public void setItemType(ItemType type) {
+    this.itemType = type;
   }
 
-  public String getType() {
-    return type;
+  ItemType getItemType() {
+    return this.itemType;
   }
 
   @Override
@@ -53,6 +55,6 @@ abstract class Product implements Item {
   public String toString() {
     return "Name: " + name + "\n"
         + "Manufacturer: " + manufacturer + "\n"
-        + "Type: " + type;
+        + "Type: " + itemType;
   }
 }

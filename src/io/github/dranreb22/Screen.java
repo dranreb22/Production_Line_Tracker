@@ -1,4 +1,6 @@
-package sample;
+package io.github.dranreb22;
+
+import io.github.dranreb22.interfaces.ScreenSpec;
 
 public class Screen implements ScreenSpec {
 

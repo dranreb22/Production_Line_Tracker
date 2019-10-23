@@ -1,4 +1,6 @@
-package sample;
+package io.github.dranreb22;
+
+import io.github.dranreb22.interfaces.MultimediaControl;
 
 public class MoviePlayer extends Product implements MultimediaControl {
 
@@ -6,7 +8,7 @@ public class MoviePlayer extends Product implements MultimediaControl {
   private MonitorType monitorType;
 
   MoviePlayer(String name, String manufacturer, Screen screen, MonitorType monitorType) {
-    super(name, manufacturer, "VISUAL");
+    super(name, manufacturer, ItemType.VISUAL);
     this.screen = screen;
     this.monitorType = monitorType;
   }
@@ -31,6 +33,7 @@ public class MoviePlayer extends Product implements MultimediaControl {
     System.out.println("Next Movie");
   }
 
+  @Override
   public String toString() {
     return super.toString() + "\n"
         + screen.toString() + "\n"
