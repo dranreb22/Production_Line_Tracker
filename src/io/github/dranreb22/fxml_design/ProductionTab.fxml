@@ -18,7 +18,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 
 <GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="2000.0" minWidth="2000.0"
-  prefHeight="2000.0" prefWidth="2000.0" stylesheets="/io/github/dranreb22/productLine.css"
+  prefHeight="2000.0" prefWidth="2000.0" stylesheets="/io/github/dranreb22/fxml_design/productLine.css"
   xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1"
   fx:controller="io.github.dranreb22.ProductionTabController">
   <columnConstraints>
