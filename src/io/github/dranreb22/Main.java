@@ -22,13 +22,13 @@ public class Main extends Application {
     Scene scene = new Scene(root, 600, 500);
     stage.setScene(scene);
 
-    Rectangle2D primaryScreenBounds = Screen.getPrimary().getVisualBounds();
+    //Rectangle2D primaryScreenBounds = Screen.getPrimary().getVisualBounds();
 
     //set Stage boundaries to visible bounds of the main screen
-//    stage.setX(primaryScreenBounds.getMinX());
-//    stage.setY(primaryScreenBounds.getMinY());
-//    stage.setWidth(primaryScreenBounds.getWidth());
-//    stage.setHeight(primaryScreenBounds.getHeight());
+    //stage.setX(primaryScreenBounds.getMinX());
+    //stage.setY(primaryScreenBounds.getMinY());
+    //stage.setWidth(primaryScreenBounds.getWidth());
+    //stage.setHeight(primaryScreenBounds.getHeight());
 
     stage.show();
   }
