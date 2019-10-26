@@ -47,13 +47,19 @@ public class ProductionTabController {
     DatabaseManager.initializeDb();
     ProductionRecord record = new ProductionRecord(0);
 
+//    for (int productionRunProduct = 0; productionRunProduct < numProduced; productionRunProduct++) {
+//      ProductionRecord pr = new ProductionRecord(productProduced, itemCount++);
+//      // using the iterator as the product id for testing
+//      System.out.println(pr.toString());
+//    }
+
     String productRecord = record.toString();
 
     textArea.setText(productRecord);
   }
 
   @FXML
-  public void addProductClicked() throws SQLException {
+  public void addProductClicked(){
     String prodName = txt_productName.getText();
     String prodMan = txt_manufacturer.getText();
     String chosenItem = chb_itemType.getValue().toString();

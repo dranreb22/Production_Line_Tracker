@@ -26,11 +26,16 @@ public class ProductionRecord {
 
   ProductionRecord(Product product, int count) {
     String manufacturer = product.getManufacturer();
+
     // String countInNumbers = String.valueOf(count);
     String firstThree = manufacturer.substring(0, 3);
+
     String itemCode = product.getItemType().getItemType();
+
     String lastFive = String.format("%05d", count);
+
     serialNumber = firstThree + itemCode + lastFive;
+
     this.dateProduced = new Date();
 
   }
