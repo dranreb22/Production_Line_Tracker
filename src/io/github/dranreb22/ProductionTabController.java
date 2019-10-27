@@ -30,7 +30,6 @@ public class ProductionTabController {
   @FXML
   private TextArea textArea;
 
-  private ArrayList<Product> productLine = new ArrayList<>();
 
   //private ResultSet rSet;
 

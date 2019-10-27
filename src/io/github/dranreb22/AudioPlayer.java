@@ -5,11 +5,11 @@ import io.github.dranreb22.interfaces.MultimediaControl;
 public class AudioPlayer extends Product implements MultimediaControl {
 
   private String audioSpecification;
-  private String mediaType;
+  private String audioType;
 
-  public AudioPlayer(String name, String manufacturer, String audioSpecification) {
+  public AudioPlayer(String name, String manufacturer, ItemType audioType) {
     super(name, manufacturer, ItemType.AUDIO);
-    this.audioSpecification = audioSpecification;
+    this.audioSpecification = audioType.toString();
   }
 
   @Override
@@ -34,6 +34,6 @@ public class AudioPlayer extends Product implements MultimediaControl {
 
   public String toString() {
     return super.toString() + "\n"
-        + "Audio Spec: ";
+        + "Audio Spec: " + audioSpecification;
   }
 }
