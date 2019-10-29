@@ -52,7 +52,7 @@ public class DatabaseManager {
         try {
 
             //Execute a query
-            productQuery = "INSERT INTO product(name, manufacturer, TYPE) VALUES (?,?,?)";
+            productQuery = "INSERT INTO PRODUCT(NAME, MANUFACTURER, TYPE) VALUES(?,?,?)";
 
             preparedStatement = conn.prepareStatement(productQuery);
             for (String s : product) {
@@ -93,6 +93,6 @@ public class DatabaseManager {
         } catch (Exception ex) {
             ex.printStackTrace();
         }
-      return productLine;
+      return null;
     }
 }

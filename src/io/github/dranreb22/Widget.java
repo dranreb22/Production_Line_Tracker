@@ -1,12 +1,10 @@
-//package io.github.dranreb22.;
-//
-//import javax.naming.ldap.PagedResultsControl;
-//
-//public class Widget extends Product {
-//
-//
-//  Widget(ItemType name) {
-//    super(name);
-//  }
-//
-//}
+package io.github.dranreb22;
+
+public class Widget extends Product {
+
+
+  Widget(String name, String manufacturer, ItemType type ) {
+    super(name, manufacturer, type);
+  }
+
+}
