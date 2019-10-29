@@ -72,27 +72,27 @@ public class DatabaseManager {
             preparedStatement = conn.prepareStatement(productQuery);
             result = preparedStatement.executeQuery();
             Product product;
-            ArrayList<Product> productLine = new ArrayList<>();
+            List<Product>  productLine = new ArrayList<>();
 
             while (result.next()) {
                 String name = result.getString("NAME");
                 String manufacturer = result.getString("MANUFACTURER");
                 String type = result.getString("TYPE");
-                if (type == "audio".toUpperCase())
-                    product = new AudioPlayer(name, manufacturer, ItemType.valueOf(type));
-                else if (type == "visual".toUpperCase())
-                    continue;
-                else if (type == "visualmobile".toUpperCase())
-                    continue;
-                else {
-                    continue;
+                if (type.equals("audio".toUpperCase())) {
+                  product = new AudioPlayer(name, manufacturer, ItemType.valueOf(type));
+                  productLine.add(product);
                 }
+//                else if (type.equals("visual".toUpperCase()))
+//                {
+//                }
+//                else if (type.equals("visualmobile".toUpperCase())) {
+//                }
+//                else {
+//                }
             }
-        } catch (SQLException ex) {
-            ex.printStackTrace();
         } catch (Exception ex) {
             ex.printStackTrace();
         }
-        return null;
+      return productLine;
     }
 }

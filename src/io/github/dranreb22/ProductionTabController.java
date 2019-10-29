@@ -1,15 +1,13 @@
 package io.github.dranreb22;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.List;
 import javafx.fxml.FXML;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
-import javax.xml.crypto.Data;
 
 /**
  * @author Bernard Georges 9/26/2019 Controller class to control results of actions being done such
@@ -30,6 +28,8 @@ public class ProductionTabController {
   @FXML
   private TextArea textArea;
 
+  private List<Product> productLine = new ArrayList<>();
+
 
   //private ResultSet rSet;
 
@@ -46,11 +46,15 @@ public class ProductionTabController {
     DatabaseManager.initializeDb();
     ProductionRecord record = new ProductionRecord(0);
 
-//    for (int productionRunProduct = 0; productionRunProduct < numProduced; productionRunProduct++) {
-//      ProductionRecord pr = new ProductionRecord(productProduced, itemCount++);
-//      // using the iterator as the product id for testing
-//      System.out.println(pr.toString());
-//    }
+    try{
+      DatabaseManager database = new DatabaseManager();
+      productLine = database.getAvailableProducts();
+      for(int i = 0; i< productLine.size();i++){
+        productLine.
+      }
+    } catch (SQLException e) {
+      e.printStackTrace();
+    }
 
     String productRecord = record.toString();
 
