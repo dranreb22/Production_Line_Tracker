@@ -10,10 +10,10 @@ abstract class Product implements Item {
   private String manufacturer;
   private String name;
 
-  Product(String name, String manufacturer, ItemType type) {
+  Product(String name, String manufacturer, ItemType itemType) {
     this.name = name;
     this.manufacturer = manufacturer;
-    this.itemType = type;
+    this.itemType = itemType;
   }
 
 
@@ -38,11 +38,11 @@ abstract class Product implements Item {
   }
 
 
-  public void setItemType(ItemType type) {
-    this.itemType = type;
+  public void setItemType(ItemType itemType) {
+    this.itemType = itemType;
   }
 
-  ItemType getItemType() {
+  public ItemType getItemType() {
     return this.itemType;
   }
 

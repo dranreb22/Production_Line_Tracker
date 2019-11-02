@@ -16,8 +16,7 @@ public class Main extends Application {
     primaryStage.setTitle("Hello World");
     primaryStage.setScene(new Scene(root, 1920, 900));
     primaryStage.show();*/
-    Parent root = FXMLLoader
-        .load(getClass().getResource("/io/github/dranreb22/fxml_design/ProductionTab.fxml"));
+    Parent root = FXMLLoader.load(getClass().getResource("./fxml_design/ProductionTab.fxml"));
     //Group root = new Group();
     Scene scene = new Scene(root, 600, 500);
     stage.setScene(scene);

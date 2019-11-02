@@ -10,24 +10,24 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import javafx.collections.ObservableList;
 
 public class DatabaseManager {
 
-    private static Connection conn;
-    private static String productQuery;
-    private static PreparedStatement preparedStatement;
+    private Connection conn;
+    private String productQuery;
+    private PreparedStatement preparedStatement;
     private ResultSet result;
+    private final String jdbcDriver = "org.h2.Driver";
+    private final String db_Url = "jdbc:h2:./res/production";
+    //Database credentials
+    // to create a database username and password,
+    // type Create USER [username] WITH PASSWORD "[password]"
+    // to allow the user to edit the database use GRANT ALTER ANY SCHEMA TO [username]; in console
+    private final String user = "";
+    private final String pass = "";
 
-    public static Connection initializeDb() {
-        final String jdbcDriver = "org.h2.Driver";
-        final String db_Url = "jdbc:h2:./res/production";
-
-        //  Database credentials
-        // to create a database username and password,
-        // type Create USER [username] WITH PASSWORD "[password]"
-        // to allow the user to edit the database use GRANT ALTER ANY SCHEMA TO [username]; in console
-        final String user = "";
-        final String pass = "";
+    public void initializeDb() {
 
         try {
             // STEP 1: Register JDBC driver
@@ -42,21 +42,18 @@ public class DatabaseManager {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-
-        return conn;
     }
 
-    public static void addProduct(String name, String manufacturer, String type) {
+    public void addProduct(String name, String manufacturer, String type) {
         String[] product = {name, manufacturer, type};
         int index = 1;
         try {
 
             //Execute a query
             productQuery = "INSERT INTO PRODUCT(NAME, MANUFACTURER, TYPE) VALUES(?,?,?)";
-
             preparedStatement = conn.prepareStatement(productQuery);
             for (String s : product) {
-                System.out.println(s);
+                //System.out.println(s);
                 preparedStatement.setString(index, s);
                 index++;
             }
@@ -67,32 +64,39 @@ public class DatabaseManager {
     }
 
     public List<Product> getAvailableProducts() {
-        try {
+      List<Product>  productLine = new ArrayList<>();
+      try {
             productQuery = "SELECT * FROM PRODUCT";
             preparedStatement = conn.prepareStatement(productQuery);
             result = preparedStatement.executeQuery();
-            Product product;
-            List<Product>  productLine = new ArrayList<>();
+
 
             while (result.next()) {
                 String name = result.getString("NAME");
                 String manufacturer = result.getString("MANUFACTURER");
                 String type = result.getString("TYPE");
-                if (type.equals("audio".toUpperCase())) {
-                  product = new AudioPlayer(name, manufacturer, ItemType.valueOf(type));
-                  productLine.add(product);
-                }
-//                else if (type.equals("visual".toUpperCase()))
-//                {
+                productLine.add(new Widget(name, manufacturer, ItemType.valueOf(type)));
+//                if (type.equals("AUDIO")) {
+//                  productLine.add(new AudioPlayer(name, manufacturer, ItemType.valueOf(type)));
 //                }
-//                else if (type.equals("visualmobile".toUpperCase())) {
+//                else if (type.equals("VISUAL"))
+//                {
+//                  //productLine.add(new MoviePlayer(name, manufacturer, ItemType.valueOf(type)));
+//                }
+//                else if (type.equals("VISUALMOBILE")) {
+//                  //productLine.add(new AudioPlayer(name, manufacturer, ItemType.valueOf(type)));
 //                }
 //                else {
+//                  //productLine.add(new AudioPlayer(name, manufacturer, ItemType.valueOf(type)));
 //                }
             }
         } catch (Exception ex) {
             ex.printStackTrace();
         }
-      return null;
+      return productLine;
+    }
+
+    public void testMethod(){
+
     }
 }
