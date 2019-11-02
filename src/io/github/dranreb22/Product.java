@@ -1,12 +1,11 @@
 package io.github.dranreb22;
 
-
 import io.github.dranreb22.interfaces.Item;
 
-abstract class Product implements Item {
+public abstract class Product implements Item {
 
-  private int id;
-  private ItemType itemType;
+  private int productID;
+  private final ItemType itemType;
   private String manufacturer;
   private String name;
 
@@ -16,10 +15,13 @@ abstract class Product implements Item {
     this.itemType = itemType;
   }
 
+  public void setProductID(int productID) {
+    this.productID = productID;
+  }
 
   @Override
   public int getID() {
-    return id;
+    return productID;
   }
 
   @Override
@@ -38,10 +40,6 @@ abstract class Product implements Item {
   }
 
 
-  public void setItemType(ItemType itemType) {
-    this.itemType = itemType;
-  }
-
   public ItemType getItemType() {
     return this.itemType;
   }
@@ -53,7 +51,8 @@ abstract class Product implements Item {
 
   @Override
   public String toString() {
-    return "Name: " + name + "\n"
+    return "Product ID: " + productID + "\n"
+        + "Name: " + name + "\n"
         + "Manufacturer: " + manufacturer + "\n"
         + "Type: " + itemType;
   }

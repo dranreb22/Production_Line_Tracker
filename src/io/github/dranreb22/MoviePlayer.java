@@ -2,10 +2,17 @@ package io.github.dranreb22;
 
 import io.github.dranreb22.interfaces.MultimediaControl;
 
+/**
+ * Class MoviePlayer extends Product and is meant to serve as a type of product to be created based
+ * on ItemTypes chosen.
+ *
+ * @author Bernard
+ */
+
 public class MoviePlayer extends Product implements MultimediaControl {
 
-  private Screen screen;
-  private MonitorType monitorType;
+  private final Screen screen;
+  private final MonitorType monitorType;
 
   MoviePlayer(String name, String manufacturer, Screen screen, MonitorType monitorType) {
     super(name, manufacturer, ItemType.VISUAL);

@@ -2,7 +2,7 @@ package io.github.dranreb22;
 
 import java.util.Date;
 
-public class ProductionRecord {
+class ProductionRecord {
 
   private int productionNumber;
   private int productID;

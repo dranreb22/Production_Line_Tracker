@@ -6,7 +6,7 @@ public enum ItemType {
   AUDIOMOBILE("AM"),
   VISUALMOBILE("VM");
 
-  final String itemType;
+  private final String itemType;
 
   ItemType(String itemType) {
     this.itemType = itemType;
