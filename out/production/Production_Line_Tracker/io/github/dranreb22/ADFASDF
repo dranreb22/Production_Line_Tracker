@@ -1,0 +1,6 @@
+This code can enable resetting the primary key of ID in the vent that the number skips by 32
+
+alter table product drop column ID;
+alter table product add ID int identity(1,1) before NAME;
+
+alter table product add primary key(ID);

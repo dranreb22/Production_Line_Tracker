@@ -1,0 +1,592 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="finished database integration for listview and consequently table view">
+      <change beforePath="$PROJECT_DIR$/res/production.trace.db" beforeDir="false" afterPath="$PROJECT_DIR$/res/production.trace.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/io/github/dranreb22/ProductionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/io/github/dranreb22/ProductionController.java" afterDir="false" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CreatePatchCommitExecutor">
+    <option name="PATCH_PATH" value="" />
+  </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="production" type="feb32156:DbDataSourceImpl" />
+      </path>
+    </expand>
+    <select />
+  </component>
+  <component name="DebuggerManager">
+    <breakpoint_any default_suspend_policy="SuspendAll" default_condition_enabled="true" converted="true">
+      <breakpoint>
+        <option name="NOTIFY_CAUGHT" value="true" />
+        <option name="NOTIFY_UNCAUGHT" value="true" />
+        <option name="ENABLED" value="false" />
+        <option name="LOG_ENABLED" value="false" />
+        <option name="LOG_EXPRESSION_ENABLED" value="false" />
+        <option name="SUSPEND_POLICY" value="SuspendAll" />
+        <option name="SUSPEND" value="true" />
+        <option name="COUNT_FILTER_ENABLED" value="false" />
+        <option name="COUNT_FILTER" value="0" />
+        <option name="CONDITION_ENABLED" value="true" />
+        <option name="CLASS_FILTERS_ENABLED" value="false" />
+        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
+        <option name="CONDITION" value="" />
+        <option name="LOG_MESSAGE" value="" />
+      </breakpoint>
+      <breakpoint>
+        <option name="NOTIFY_CAUGHT" value="true" />
+        <option name="NOTIFY_UNCAUGHT" value="true" />
+        <option name="ENABLED" value="false" />
+        <option name="LOG_ENABLED" value="false" />
+        <option name="LOG_EXPRESSION_ENABLED" value="false" />
+        <option name="SUSPEND_POLICY" value="SuspendAll" />
+        <option name="SUSPEND" value="true" />
+        <option name="COUNT_FILTER_ENABLED" value="false" />
+        <option name="COUNT_FILTER" value="0" />
+        <option name="CONDITION_ENABLED" value="true" />
+        <option name="CLASS_FILTERS_ENABLED" value="false" />
+        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
+        <option name="CONDITION" value="" />
+        <option name="LOG_MESSAGE" value="" />
+      </breakpoint>
+    </breakpoint_any>
+    <ui_properties converted="true" />
+    <breakpoint_rules converted="true" />
+  </component>
+  <component name="FavoritesManager">
+    <favorites_list name="JavaFxApplication" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="CSS File" />
+        <option value="Interface" />
+        <option value="Enum" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="FindBugs-IDEA-Workspace">
+    <toolWindowScrollToSource>false</toolWindowScrollToSource>
+    <toolWindowGroupBy>Class</toolWindowGroupBy>
+  </component>
+  <component name="FindManager">
+    <FindUsagesManager>
+      <setting name="OPEN_NEW_TAB" value="false" />
+    </FindUsagesManager>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IgnoredFileRootStore">
+    <option name="generatedRoots">
+      <set>
+        <option value="C:\Users\bgeorges4529\OneDrive - Florida Gulf Coast University\COP3003\IDEA Projects\Production_Line_Tracker\.idea" />
+      </set>
+    </option>
+  </component>
+  <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
+  <component name="ProjectId" id="1Qi67fhsirbV6eXE5oQwL6JvrR7" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectReloadState">
+    <option name="STATE" value="0" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="GoToClass.includeLibraries" value="false" />
+    <property name="GoToClass.toSaveIncludeLibraries" value="false" />
+    <property name="GoToFile.includeJavaFiles" value="false" />
+    <property name="MemberChooser.copyJavadoc" value="false" />
+    <property name="MemberChooser.showClasses" value="true" />
+    <property name="MemberChooser.sorted" value="false" />
+    <property name="OverrideImplement.combined" value="false" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="dynamic.classpath" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/res" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="recentsLimit" value="5" />
+    <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\berna\OneDrive - Florida Gulf Coast University\COP3003\IDEA Projects\Production_Line_Tracker\src\io\github\dranreb22\res" />
+      <recent name="C:\Users\bgeorges4529\OneDrive - Florida Gulf Coast University\COP3003\IDEA Projects\Production_Line_Tracker\src\io\github\dranreb22" />
+      <recent name="C:\Users\berna\OneDrive - Florida Gulf Coast University\COP3003\IDEA Projects\Production_Line_Tracker\src\io\github\dranreb22\fxml_design" />
+      <recent name="C:\Users\berna\OneDrive - Florida Gulf Coast University\COP3003\IDEA Projects\Production_Line_Tracker\src\io\github\dranreb22\testClasses" />
+      <recent name="C:\Users\berna\OneDrive - Florida Gulf Coast University\COP3003\IDEA Projects\Production_Line_Tracker\src\io\github\dranreb22\fxml" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="Application.Main (1)">
+    <configuration default="true" type="DartUnitRunConfigurationType" factoryName="DartUnit">
+      <option name="VMOptions" />
+      <option name="arguments" />
+      <option name="filePath" />
+      <option name="scope" value="ALL" />
+      <option name="testName" />
+      <method />
+    </configuration>
+    <configuration name="&lt;template&gt;" type="WebApp" default="true" selected="false">
+      <Host>localhost</Host>
+      <Port>5050</Port>
+    </configuration>
+    <configuration default="true" type="Applet">
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="AudioPlayerTest" type="Application" factoryName="Application" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="sample.AudioPlayerTest" />
+      <module name="Production_Line_Tracker" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="sample.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Main (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="io.github.dranreb22.Main" />
+      <module name="Production_Line_Tracker" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="io.github.dranreb22.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Main" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="sample.Main" />
+      <module name="Production_Line_Tracker" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="sample.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <RunnerSettings RunnerId="Run" />
+      <ConfigurationWrapper RunnerId="Run" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="io.github.dranreb22.Main" />
+      <module name="Production_Line_Tracker" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="io.github.dranreb22.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="io.github.dranreb22.Main" />
+      <module name="Production_Line_Tracker" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="io.github.dranreb22.interfaces.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MoviePlayerDriver" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="sample.MoviePlayerDriver" />
+      <module name="Production_Line_Tracker" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="sample.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="Application" factoryName="Application">
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="JUnit" factoryName="JUnit">
+      <option name="TEST_OBJECT" value="class" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="moduleWithDependencies" />
+      </option>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="TestNG">
+      <option name="TEST_OBJECT" value="CLASS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="moduleWithDependencies" />
+      </option>
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType">
+      <module name="" />
+      <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m" />
+      <option name="PROGRAM_PARAMETERS" />
+      <predefined_log_file enabled="true" id="idea.log" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Main (1)" />
+        <item itemvalue="Application.MoviePlayerDriver" />
+        <item itemvalue="Application.MoviePlayerDriver" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="ServiceViewManager">
+    <option name="allServicesViewState">
+      <serviceView>
+        <treeState>
+          <expand>
+            <path>
+              <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@be67807e" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+            </path>
+            <path>
+              <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@be67807e" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceNode@3e1161c7" type="9fbbdea:ServiceModel$ServiceNode" />
+            </path>
+          </expand>
+          <select />
+        </treeState>
+      </serviceView>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="" />
+      <created>1359379246138</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1359379246138</updated>
+      <workItem from="1359379250712" duration="1302000" />
+      <workItem from="1568240904937" duration="1229000" />
+      <workItem from="1568242149521" duration="203000" />
+      <workItem from="1568242364360" duration="338000" />
+      <workItem from="1568242722586" duration="725000" />
+      <workItem from="1568838711426" duration="604000" />
+      <workItem from="1568846710857" duration="1489000" />
+      <workItem from="1569112568072" duration="209000" />
+      <workItem from="1569113137629" duration="7319000" />
+      <workItem from="1569435846206" duration="188000" />
+      <workItem from="1569436486826" duration="12566000" />
+      <workItem from="1569462388096" duration="5232000" />
+      <workItem from="1569512663213" duration="1389000" />
+      <workItem from="1569696742868" duration="1656000" />
+      <workItem from="1569715573903" duration="19610000" />
+      <workItem from="1570050061436" duration="5091000" />
+      <workItem from="1570110798791" duration="5925000" />
+      <workItem from="1570458669563" duration="163000" />
+      <workItem from="1570459085167" duration="40000" />
+      <workItem from="1570632966791" duration="4653000" />
+      <workItem from="1570646783697" duration="3805000" />
+      <workItem from="1570657351798" duration="5511000" />
+      <workItem from="1570734155134" duration="1091000" />
+      <workItem from="1570735284124" duration="115000" />
+      <workItem from="1570834202281" duration="218000" />
+      <workItem from="1570834553983" duration="522000" />
+      <workItem from="1571046007735" duration="2692000" />
+      <workItem from="1571073781626" duration="3197000" />
+      <workItem from="1571095830584" duration="935000" />
+      <workItem from="1571116421527" duration="1093000" />
+      <workItem from="1571182072380" duration="10072000" />
+      <workItem from="1571325224798" duration="19479000" />
+      <workItem from="1571421182578" duration="645000" />
+      <workItem from="1571670194624" duration="2133000" />
+      <workItem from="1571680382685" duration="2443000" />
+      <workItem from="1571756252456" duration="9722000" />
+      <workItem from="1571841163507" duration="3457000" />
+      <workItem from="1571844696110" duration="5874000" />
+      <workItem from="1571863971546" duration="813000" />
+      <workItem from="1571871047585" duration="1511000" />
+      <workItem from="1571943511090" duration="4305000" />
+      <workItem from="1572102007004" duration="236000" />
+      <workItem from="1572102306802" duration="146000" />
+      <workItem from="1572105844254" duration="8669000" />
+      <workItem from="1572367845791" duration="4163000" />
+      <workItem from="1572416593405" duration="2899000" />
+      <workItem from="1572675032492" duration="1096000" />
+      <workItem from="1572711331856" duration="5286000" />
+      <workItem from="1572716893463" duration="2516000" />
+      <workItem from="1572719523346" duration="28000" />
+      <workItem from="1572736957345" duration="76000" />
+      <workItem from="1572737088238" duration="785000" />
+    </task>
+    <task id="LOCAL-00001" summary="tireless hours of fixing sprint 1 &#10;and working with css; ezpz">
+      <created>1569463526311</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1569463526311</updated>
+    </task>
+    <task id="LOCAL-00002" summary="tireless hours of fixing sprint 1 &#10;and working with css; ezpz">
+      <created>1569511698124</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1569511698124</updated>
+    </task>
+    <task id="LOCAL-00003" summary="added basic css">
+      <created>1569512392142</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1569512392142</updated>
+    </task>
+    <task id="LOCAL-00004" summary="added capability to save information selected item type to database along with other options.">
+      <created>1569767713003</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1569767713003</updated>
+    </task>
+    <task id="LOCAL-00005" summary="fixing styling from previous commit less than a few minutes ago">
+      <created>1569767975150</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1569767975150</updated>
+    </task>
+    <task id="LOCAL-00006" summary="created Item Interface and Product class">
+      <created>1569768966888</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1569768966888</updated>
+    </task>
+    <task id="LOCAL-00007" summary="created interface Multimedia Control which is implemented by the newly created AudioPlayer class. A now commented test class for AudioPlayer was also created to ensure the methods were functioning">
+      <created>1570113399799</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1570113399799</updated>
+    </task>
+    <task id="LOCAL-00008" summary="**corrected style**created interface Multimedia Control which is implemented by the newly created AudioPlayer class. A now commented test class for AudioPlayer was also created to ensure the methods were functioning">
+      <created>1570113607689</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1570113607689</updated>
+    </task>
+    <task id="LOCAL-00009" summary="added monitor, screen, screenspec">
+      <created>1570116962013</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1570116962013</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Issue 3 Completed; added MoviePlayer and MoviePlayerDriver. Edited audioPlayer and tested moviePlayer within initialize method in main();">
+      <created>1570657064496</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1570657064496</updated>
+    </task>
+    <task id="LOCAL-00011" summary="adding to controller">
+      <created>1571055994530</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1571055994530</updated>
+    </task>
+    <task id="LOCAL-00012" summary="finished issue 4">
+      <created>1571161477920</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1571161477921</updated>
+    </task>
+    <task id="LOCAL-00013" summary="removed database code form controller; added to DatabaseManager class.">
+      <created>1571843948103</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1571843948103</updated>
+    </task>
+    <task id="LOCAL-00014" summary="Organized code">
+      <created>1571844547963</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1571844547963</updated>
+    </task>
+    <task id="LOCAL-00015" summary="Organized code">
+      <created>1571847406309</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1571847406309</updated>
+    </task>
+    <task id="LOCAL-00016" summary="working on db manager class integration for database">
+      <created>1572102440472</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1572102440472</updated>
+    </task>
+    <task id="LOCAL-00017" summary="working on db manager class integration for database">
+      <created>1572192566368</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1572192566368</updated>
+    </task>
+    <task id="LOCAL-00018" summary="working on db manager class integration for database">
+      <created>1572356085963</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1572356085963</updated>
+    </task>
+    <task id="LOCAL-00019" summary="formatted per google style and adding more javadocs">
+      <created>1572719138442</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1572719138442</updated>
+    </task>
+    <task id="LOCAL-00020" summary="google style format on 3 files">
+      <created>1572719394456</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1572719394456</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="OFFER_MOVE_TO_ANOTHER_CHANGELIST_ON_PARTIAL_COMMIT" value="true" />
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <option name="INCLUDE_TEXT_INTO_SHELF" value="false" />
+    <MESSAGE value="tireless hours of fixing sprint 1 ezpz" />
+    <MESSAGE value="tireless hours of fixing sprint 1 &#10;and working with css; ezpz" />
+    <MESSAGE value="added basic css" />
+    <MESSAGE value="added capability to save information selected item type to database along with other options." />
+    <MESSAGE value="fixing styling from previous commit less than a few minutes ago" />
+    <MESSAGE value="created Item Interface and Product class" />
+    <MESSAGE value="created interface Multimedia Control which is implemented by the newly created AudioPlayer class. A now commented test class for AudioPlayer was also created to ensure the methods were functioning" />
+    <MESSAGE value="**corrected style**created interface Multimedia Control which is implemented by the newly created AudioPlayer class. A now commented test class for AudioPlayer was also created to ensure the methods were functioning" />
+    <MESSAGE value="added monitor, screen, screenspec" />
+    <MESSAGE value="Issue 3 Completed; added MoviePlayer and MoviePlayerDriver. Edited audioPlayer and tested moviePlayer within initialize method in main();" />
+    <MESSAGE value="MESSING WITH SOME SQL STUFF" />
+    <MESSAGE value="adding to controller" />
+    <MESSAGE value="finished issue 4" />
+    <MESSAGE value="updating all files to reflect itemtype appropriately, as well as quality of life changes" />
+    <MESSAGE value="removed database code form controller; added to DatabaseManager class." />
+    <MESSAGE value="Organized code" />
+    <MESSAGE value="start of issue 6" />
+    <MESSAGE value="working on db manager class integration for database" />
+    <MESSAGE value="formatted per google style and adding more javadocs" />
+    <MESSAGE value="google style format on 3 files" />
+    <option name="LAST_COMMIT_MESSAGE" value="google style format on 3 files" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/io/github/dranreb22/testClasses/AudioPlayerTest.java</url>
+          <line>1</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>
