@@ -68,23 +68,35 @@ public class ProductionController {
       chbItemType.setValue(ItemType.AUDIO);
     }
 
-    tbcName.setCellValueFactory(new PropertyValueFactory("name"));
-    tbcManufacturer.setCellValueFactory(new PropertyValueFactory("manufacturer"));
-    tbcType.setCellValueFactory(new PropertyValueFactory("itemType"));
+    setupProductLineTable();
 
     db.initializeDb();
     List<Product> availableProducts = db.getAvailableProducts();
     observableList = FXCollections.observableArrayList(availableProducts);
-    int randomValue = random.nextInt();
-    ProductionRecord record = new ProductionRecord(randomValue);
+    /*int randomValue = random.nextInt();
+    ProductionRecord record = new ProductionRecord(randomValue);*/
     tbvExistingProducts.setItems(observableList);
     lvwProductOption.setItems(observableList);
 
-    String productRecord = record.toString();
+    //String productRecord = record.toString();
 
-    textArea.setText(productRecord);
+    setupProductionLog();
+    //textArea.setText(productRecord);
   }
 
+  public void setupProductLineTable(){
+    tbcName.setCellValueFactory(new PropertyValueFactory("name"));
+    tbcManufacturer.setCellValueFactory(new PropertyValueFactory("manufacturer"));
+    tbcType.setCellValueFactory(new PropertyValueFactory("itemType"));
+  }
+
+  public void setupProductionLog(){
+    textArea.clear();
+    int randomValue = random.nextInt();
+    ProductionRecord record = new ProductionRecord(randomValue);
+    String productRecord = record.toString();
+    textArea.setText(productRecord);
+  }
   /**
    * <p>
    * method that runs when Add Product button is clicked, accepting the values from the text field,

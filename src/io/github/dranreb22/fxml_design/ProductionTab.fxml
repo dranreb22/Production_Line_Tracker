@@ -17,62 +17,52 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="420.0" minWidth="500.0"
-  prefHeight="300.0" prefWidth="500.0"
-  stylesheets="/io/github/dranreb22/fxml_design/productLine.css"
-  xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1"
-  fx:controller="io.github.dranreb22.ProductionController">
+<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="420.0" minWidth="500.0" prefHeight="300.0" prefWidth="500.0" stylesheets="/io/github/dranreb22/fxml_design/productLine.css" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="io.github.dranreb22.ProductionController">
   <columnConstraints>
-    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
-    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
   </columnConstraints>
   <rowConstraints>
-    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
-    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
-    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
   </rowConstraints>
-  <TabPane prefHeight="300.0" prefWidth="500.0" tabClosingPolicy="UNAVAILABLE"
-    GridPane.columnSpan="2" GridPane.rowSpan="3">
+  <TabPane prefHeight="300.0" prefWidth="500.0" tabClosingPolicy="UNAVAILABLE" GridPane.columnSpan="2" GridPane.rowSpan="3">
     <Tab text="Product Line">
       <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="384.0" prefWidth="500.0">
-        <Label layoutX="15.0" layoutY="15.0" text="Product Name"/>
-        <TextField fx:id="txtProductName" layoutX="119.0" layoutY="11.0"/>
-        <Label layoutX="17.0" layoutY="54.0" text="Manufacturer"/>
-        <TextField fx:id="txtManufacturer" layoutX="119.0" layoutY="50.0"/>
-        <Label layoutX="17.0" layoutY="106.0" text="Item Type"/>
-        <Button layoutX="119.0" layoutY="135.0" mnemonicParsing="false"
-          onMouseClicked="#addProductClicked" text="Add Product"/>
-        <TableView fx:id="tbvExistingProducts" layoutX="118.0" layoutY="171.0" prefHeight="199.0"
-          prefWidth="354.0">
+        <Label layoutX="15.0" layoutY="15.0" text="Product Name" />
+        <TextField fx:id="txtProductName" layoutX="119.0" layoutY="11.0" />
+        <Label layoutX="17.0" layoutY="54.0" text="Manufacturer" />
+        <TextField fx:id="txtManufacturer" layoutX="119.0" layoutY="50.0" />
+        <Label layoutX="17.0" layoutY="106.0" text="Item Type" />
+        <Button layoutX="119.0" layoutY="135.0" mnemonicParsing="false" onMouseClicked="#addProductClicked" text="Add Product" />
+        <TableView fx:id="tbvExistingProducts" layoutX="118.0" layoutY="171.0" prefHeight="199.0" prefWidth="354.0">
           <columns>
-            <TableColumn fx:id="tbcName" prefWidth="98.99996948242188" text="Name"/>
-            <TableColumn fx:id="tbcManufacturer" prefWidth="126.0" text="Manufacturer"/>
-            <TableColumn fx:id="tbcType" prefWidth="128.0" text="Type"/>
+            <TableColumn fx:id="tbcName" prefWidth="98.99996948242188" text="Name" />
+            <TableColumn fx:id="tbcManufacturer" prefWidth="126.0" text="Manufacturer" />
+            <TableColumn fx:id="tbcType" prefWidth="128.0" text="Type" />
           </columns>
         </TableView>
-        <Label layoutX="15.0" layoutY="262.0" text="Existing Products"/>
-        <ChoiceBox fx:id="chbItemType" layoutX="119.0" layoutY="102.0" prefWidth="150.0"/>
+        <Label layoutX="15.0" layoutY="262.0" text="Existing Products" />
+        <ChoiceBox fx:id="chbItemType" layoutX="119.0" layoutY="102.0" prefWidth="150.0" />
       </AnchorPane>
     </Tab>
     <Tab text="Produce">
       <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-        <Label layoutX="34.0" layoutY="101.0" text="Choose Product"/>
-        <ListView fx:id="lvwProductOption" layoutX="162.0" layoutY="9.0" prefHeight="204.0"
-          prefWidth="280.0"/>
-        <Label layoutX="32.0" layoutY="234.0" text="Choose Quantity"/>
-        <ComboBox fx:id="cmbQuantity" editable="true" layoutX="162.0" layoutY="230.0"
-          prefHeight="25.0" prefWidth="204.0"/>
-        <Button layoutX="162.0" layoutY="294.0" mnemonicParsing="false" text="Record Production"/>
+        <Label layoutX="34.0" layoutY="101.0" text="Choose Product" />
+        <ListView fx:id="lvwProductOption" layoutX="162.0" layoutY="9.0" prefHeight="204.0" prefWidth="280.0" />
+        <Label layoutX="32.0" layoutY="234.0" text="Choose Quantity" />
+        <ComboBox fx:id="cmbQuantity" editable="true" layoutX="162.0" layoutY="230.0" prefHeight="25.0" prefWidth="204.0" />
+        <Button layoutX="162.0" layoutY="294.0" mnemonicParsing="false" text="Record Production" />
       </AnchorPane>
     </Tab>
     <Tab text="Production Log">
       <AnchorPane minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-        <BorderPane layoutX="-10.0" prefHeight="371.0" prefWidth="200.0"
-          AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
-          AnchorPane.topAnchor="0.0">
-          <TextArea fx:id="textArea" editable="false" prefHeight="227.0" prefWidth="200.0"
-            BorderPane.alignment="CENTER"/>
-        </BorderPane>
+         <BorderPane layoutX="-10.0" prefHeight="371.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <center>
+                  <TextArea fx:id="textArea" editable="false" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
+               </center>
+         </BorderPane>
       </AnchorPane>
     </Tab>
   </TabPane>
