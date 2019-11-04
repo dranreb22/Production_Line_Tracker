@@ -5,7 +5,7 @@ import io.github.dranreb22.interfaces.ScreenSpec;
 /**
  * Class Screen explains the features and specifications of the screen of the product entered.
  *
- * @author Bernard
+ * @author Bernard Georges 9/26/2019
  */
 
 public class Screen implements ScreenSpec {

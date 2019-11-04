@@ -3,7 +3,7 @@ package io.github.dranreb22;
 /**
  * Class Widget extends Product and is meant to serve as a generic type of product to be created.
  *
- * @author Bernard
+ * @author Bernard Georges 9/26/2019
  */
 
 class Widget extends Product {

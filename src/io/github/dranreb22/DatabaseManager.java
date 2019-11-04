@@ -8,6 +8,13 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Class DatabaseManager provides methods to open access to the database, as well as to get and
+ * store items from/within the database.
+ *
+ * @author Bernard Georges 9/26/2019
+ */
+
 class DatabaseManager {
 
   private Connection conn;
@@ -15,6 +22,9 @@ class DatabaseManager {
   private PreparedStatement preparedStatement;
   private ResultSet result;
 
+  /**
+   * Opens the connection to the database.
+   */
   void initializeDb() {
 
     try {
@@ -32,12 +42,19 @@ class DatabaseManager {
       String pass = "georges";
       conn = DriverManager.getConnection(dbUrl, user, pass);
 
-    } catch (ClassNotFoundException | SQLException classException) {
-      classException.printStackTrace();
+    } catch (ClassNotFoundException | SQLException exception) {
+      exception.printStackTrace();
 
     }
   }
 
+  /**
+   * Method with preparedStatement enabling access to inserting items to the Product Table.
+   *
+   * @param name         Name of product.
+   * @param manufacturer Manufacturer of product.
+   * @param type         Item type of product.
+   */
   void addProduct(String name, String manufacturer, String type) {
     String[] product = {name, manufacturer, type};
     int index = 1;
@@ -56,6 +73,12 @@ class DatabaseManager {
     }
   }
 
+  /**
+   * Method with a prepared statement that returns the products in the Product table as a List of
+   * type Product
+   *
+   * @return Products from the database as a list of object type Product.
+   */
   List<Product> getAvailableProducts() {
     List<Product> productLine = new ArrayList<>();
     try {

@@ -2,12 +2,26 @@ package io.github.dranreb22;
 
 import java.util.Date;
 
+/**
+ * Class ProductionRecord allows methods to record the production being done, as well enabling
+ * formatting of things such as serial numbers of products.
+ *
+ * @author Bernard Georges 9/26/2019
+ */
+
 class ProductionRecord {
 
   private int productionNumber;
   private int productID;
   private String serialNumber;
   private Date dateProduced;
+
+  /**
+   * ProductionRecord constructor that accepts productID and sets default values to other
+   * variables.
+   *
+   * @param productID The ID of the product pulled from the database.
+   */
 
   ProductionRecord(int productID) {
     this.productID = productID;
@@ -16,6 +30,12 @@ class ProductionRecord {
     this.dateProduced = new Date();
   }
 
+  /**
+   * @param productionNumber Total number of items regardless of type.
+   * @param productID        The ID of the product being produced.
+   * @param serialNumber     The serial number of the items created depending on type.
+   * @param dateProduced     The date of the item being produced (current date/time).
+   */
   ProductionRecord(int productionNumber, int productID,
       String serialNumber, Date dateProduced) {
     this.productionNumber = productionNumber;
@@ -27,7 +47,6 @@ class ProductionRecord {
   ProductionRecord(Product product, int count) {
     String manufacturer = product.getManufacturer();
 
-    // String countInNumbers = String.valueOf(count);
     String firstThree = manufacturer.substring(0, 3);
 
     String itemCode = product.getItemType().getItemType();

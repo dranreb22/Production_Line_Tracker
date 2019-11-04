@@ -6,8 +6,20 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+/**
+ * Default main class starts the GUI
+ *
+ * @author Bernard Georges 9/26/2019
+ */
 public class Main extends Application {
 
+  /**
+   * Start method runs at the beginning of the program to obtain access to the GUI, set its title
+   * and scene, then shows the GUI.
+   *
+   * @param stage Stage object provides methods for viewing the GUI
+   * @throws Exception catches all exceptions
+   */
   @Override
   public void start(Stage stage) throws Exception {
 

@@ -80,7 +80,7 @@ public class ProductionController {
 
     //String productRecord = record.toString();
 
-    setupProductionLog();
+    //setupProductionLog();
     //textArea.setText(productRecord);
   }
 
