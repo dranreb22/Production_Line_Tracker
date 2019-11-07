@@ -75,7 +75,7 @@ class DatabaseManager {
 
   /**
    * Method with a prepared statement that returns the products in the Product table as a List of
-   * type Product
+   * type Product.
    *
    * @return Products from the database as a list of object type Product.
    */
@@ -87,10 +87,11 @@ class DatabaseManager {
       result = preparedStatement.executeQuery();
 
       while (result.next()) {
+        Integer ID = result.getInt("ID");
         String name = result.getString("NAME");
         String manufacturer = result.getString("MANUFACTURER");
         String type = result.getString("TYPE");
-        productLine.add(new Widget(name, manufacturer, ItemType.valueOf(type)));
+        productLine.add(new Widget(ID, name, manufacturer, ItemType.valueOf(type)));
         /*if (type.equals("AUDIO")) {
           productLine.add(new AudioPlayer(name, manufacturer, ItemType.valueOf(type)));
         } else if (type.equals("VISUAL")) {
@@ -101,7 +102,7 @@ class DatabaseManager {
           //productLine.add(new AudioPlayer(name, manufacturer, ItemType.valueOf(type)));
         }*/
       }
-    } catch (Exception ex) {
+    } catch (SQLException ex) {
       ex.printStackTrace();
     }
     return productLine;

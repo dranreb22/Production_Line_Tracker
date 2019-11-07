@@ -31,6 +31,9 @@ class ProductionRecord {
   }
 
   /**
+   * Production Record constructor enables the program to assign values to the variables of the
+   * object.
+   *
    * @param productionNumber Total number of items regardless of type.
    * @param productID        The ID of the product being produced.
    * @param serialNumber     The serial number of the items created depending on type.
@@ -44,6 +47,11 @@ class ProductionRecord {
     this.dateProduced = dateProduced;
   }
 
+  /**
+   * @param product product object of Class Product containing fields of ID, itemtype, manufacturer,
+   *                and name.
+   * @param count   counter of the product used to define the variable.
+   */
   ProductionRecord(Product product, int count) {
     String manufacturer = product.getManufacturer();
 
@@ -59,34 +67,65 @@ class ProductionRecord {
 
   }
 
+  /**
+   * Method enabling access to productID.
+   *
+   * @return Returns the productID as an int.
+   */
   public int getProductID() {
     return productID;
   }
 
+  /**
+   * Method that allows setting of a production ID.
+   *
+   * @return Returns production number as an int.
+   */
   public void setProductID(int productID) {
     this.productID = productID;
   }
 
+  /**
+   * Method enabling access to the serial number.
+   *
+   * @return Returns the serial number as a String object.
+   */
   public String getSerialNumber() {
     return serialNumber;
   }
 
+  /**
+   * Method that allows setting of a serial number.
+   *
+   * @return Returns production number as an int.
+   */
   public void setSerialNumber(String serialNumber) {
     this.serialNumber = serialNumber;
   }
 
+  /**
+   * Method enabling access to date the object was created.
+   *
+   * @return Returns the date the product was produced as a Date object.
+   */
   public Date getDateProduced() {
     return dateProduced;
   }
 
-  public void setDateProduced(Date dateProduced) {
-    this.dateProduced = dateProduced;
-  }
-
+  /**
+   * Method enabling access to production number.
+   *
+   * @return Returns production number as an int.
+   */
   public int getProductionNumber() {
     return productionNumber;
   }
 
+  /**
+   * Method that allows setting of a production number.
+   *
+   * @return Returns production number as an int.
+   */
   public void setProductionNumber(int productionNumber) {
     this.productionNumber = productionNumber;
   }

@@ -10,7 +10,7 @@ import io.github.dranreb22.interfaces.Item;
  */
 public abstract class Product implements Item {
 
-  private int productID;
+  private int ID;
   private final ItemType itemType;
   private String manufacturer;
   private String name;
@@ -23,6 +23,13 @@ public abstract class Product implements Item {
    * @param itemType     itemType of product.
    */
 
+  Product(Integer ID, String name, String manufacturer, ItemType itemType) {
+    this.ID = ID;
+    this.name = name;
+    this.manufacturer = manufacturer;
+    this.itemType = itemType;
+  }
+
   Product(String name, String manufacturer, ItemType itemType) {
     this.name = name;
     this.manufacturer = manufacturer;
@@ -30,39 +37,47 @@ public abstract class Product implements Item {
   }
 
   /**
-   * Method that allows changing of the productID.
-   * @param productID ID of the product from the database.
+   * Method that allows changing of the ID.
+   *
+   * @param ID ID of the product from the database.
    */
-  public void setProductID(int productID) {
-    this.productID = productID;
+  public void setID(Integer ID) {
+    this.ID = ID;
   }
 
   /**
    * Method that enables access to the product.
+   *
    * @return ID of the product initially pulled from the database.
    */
   @Override
   public int getID() {
-    return productID;
+    return ID;
   }
+
   /**
    * Method that allows changing of the name.
+   *
    * @param name Name of the product from the database.
    */
   @Override
   public void setName(String name) {
     this.name = name;
   }
+
   /**
    * Method that enables access to the name of the product.
+   *
    * @return Name of the product initially pulled from the database or changed by setName.
    */
   @Override
   public String getName() {
     return name;
   }
+
   /**
    * Method that allows changing of the manufacturer.
+   *
    * @param manufacturer Manufacturer of the product from the database.
    */
   @Override
@@ -72,13 +87,16 @@ public abstract class Product implements Item {
 
   /**
    * Method that enables access to the itemType of the product.
+   *
    * @return itemType of the product initially pulled from the database.
    */
   public ItemType getItemType() {
     return this.itemType;
   }
+
   /**
    * Method that enables access to the manufacturer of the product.
+   *
    * @return manufacturer of the product initially pulled from the database.
    */
   @Override
@@ -88,11 +106,12 @@ public abstract class Product implements Item {
 
   /**
    * Method that returns to formatted information presented by the variables in this class.
+   *
    * @return Formatted String of productID + name + manufacturer + itemType.
    */
   @Override
   public String toString() {
-    return "Product ID: " + productID + "\n"
+    return "Product ID: " + ID + "\n"
         + "Name: " + name + "\n"
         + "Manufacturer: " + manufacturer + "\n"
         + "Type: " + itemType;

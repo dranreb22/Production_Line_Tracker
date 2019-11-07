@@ -17,16 +17,16 @@ public class AudioPlayer extends Product implements MultimediaControl {
   /**
    * Constructor method for class AudioPlayer, enabling users to pass defined parameters below.
    *
-   * @param name                     name of the audio player
-   * @param manufacturer             manufacturer of the audio player
-   * @param audioType                ItemType (will always be AUDIO)
-   * @param supportedAudioFormats    the formats of audio that the player supports
-   * @param supportedPlaylistFormats the format of the playlists that the player supports
+   * @param name                     Name of the audio player.
+   * @param manufacturer             Manufacturer of the audio player.
+   * @param audioType                ItemType (will always be AUDIO).
+   * @param supportedAudioFormats    the formats of audio that the player supports.
+   * @param supportedPlaylistFormats the format of the playlists that the player supports.
    */
 
-  public AudioPlayer(String name, String manufacturer, ItemType audioType,
+  public AudioPlayer(Integer ID, String name, String manufacturer, ItemType audioType,
       String supportedAudioFormats, String supportedPlaylistFormats) {
-    super(name, manufacturer, audioType);
+    super(ID, name, manufacturer, audioType);
     this.supportedAudioFormats = supportedAudioFormats;
     this.supportedPlaylistFormats = supportedPlaylistFormats;
   }

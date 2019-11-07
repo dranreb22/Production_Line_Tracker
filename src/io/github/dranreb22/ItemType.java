@@ -25,6 +25,7 @@ public enum ItemType {
 
   /**
    * Method that enables access to the itemType.
+   *
    * @return The item type of the product/object.
    */
   public String getItemType() {

@@ -68,7 +68,7 @@ public class ProductionController {
       chbItemType.setValue(ItemType.AUDIO);
     }
 
-    setupProductLineTable();
+//    setupProductLineTable();
 
     db.initializeDb();
     List<Product> availableProducts = db.getAvailableProducts();
@@ -80,23 +80,28 @@ public class ProductionController {
 
     //String productRecord = record.toString();
 
-    //setupProductionLog();
+    setupProductionLog();
     //textArea.setText(productRecord);
   }
 
-  public void setupProductLineTable(){
+
+/*  public void setupProductLineTable() {
     tbcName.setCellValueFactory(new PropertyValueFactory("name"));
     tbcManufacturer.setCellValueFactory(new PropertyValueFactory("manufacturer"));
     tbcType.setCellValueFactory(new PropertyValueFactory("itemType"));
-  }
+  }*/
 
-  public void setupProductionLog(){
+  /**
+   * Method that initializes the production log from previous created products.
+   */
+  public void setupProductionLog() {
     textArea.clear();
     int randomValue = random.nextInt();
     ProductionRecord record = new ProductionRecord(randomValue);
     String productRecord = record.toString();
     textArea.setText(productRecord);
   }
+
   /**
    * <p>
    * method that runs when Add Product button is clicked, accepting the values from the text field,
@@ -112,6 +117,7 @@ public class ProductionController {
     String chosenItem = chbItemType.getValue().toString();
 
     db.addProduct(prodName, prodMan, chosenItem);
+    System.out.println(prodName + prodMan + chosenItem);
 
     observableList.add(new Widget(prodName, prodMan, ItemType.valueOf((chosenItem))));
     txtProductName.clear();

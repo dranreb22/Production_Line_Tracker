@@ -17,6 +17,7 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 
+<?import javafx.scene.control.cell.PropertyValueFactory?>
 <GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="420.0" minWidth="500.0" prefHeight="300.0" prefWidth="500.0" stylesheets="/io/github/dranreb22/fxml_design/productLine.css" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="io.github.dranreb22.ProductionController">
   <columnConstraints>
     <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -38,9 +39,15 @@
         <Button layoutX="119.0" layoutY="135.0" mnemonicParsing="false" onMouseClicked="#addProductClicked" text="Add Product" />
         <TableView fx:id="tbvExistingProducts" layoutX="118.0" layoutY="171.0" prefHeight="199.0" prefWidth="354.0">
           <columns>
-            <TableColumn fx:id="tbcName" prefWidth="98.99996948242188" text="Name" />
-            <TableColumn fx:id="tbcManufacturer" prefWidth="126.0" text="Manufacturer" />
-            <TableColumn fx:id="tbcType" prefWidth="128.0" text="Type" />
+            <TableColumn fx:id="tbcName" prefWidth="98.99996948242188" text="Name">
+              <cellValueFactory><PropertyValueFactory property="name"/></cellValueFactory>
+            </TableColumn>
+            <TableColumn fx:id="tbcManufacturer" prefWidth="126.0" text="Manufacturer">
+            <cellValueFactory><PropertyValueFactory property="manufacturer"/></cellValueFactory>
+            </TableColumn>
+            <TableColumn fx:id="tbcType" prefWidth="128.0" text="Type">
+              <cellValueFactory><PropertyValueFactory property="itemType"/></cellValueFactory>
+            </TableColumn>
           </columns>
         </TableView>
         <Label layoutX="15.0" layoutY="262.0" text="Existing Products" />
