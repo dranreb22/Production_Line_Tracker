@@ -11,14 +11,14 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<?import javafx.scene.control.cell.PropertyValueFactory?>
-<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="420.0" minWidth="500.0" prefHeight="300.0" prefWidth="500.0" stylesheets="/io/github/dranreb22/fxml_design/productLine.css" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="io.github.dranreb22.ProductionController">
+<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="420.0" minWidth="500.0" prefHeight="300.0" prefWidth="500.0" stylesheets="/io/github/dranreb22/fxml_design/productLine.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="io.github.dranreb22.ProductionController">
   <columnConstraints>
     <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
     <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -40,13 +40,13 @@
         <TableView fx:id="tbvExistingProducts" layoutX="118.0" layoutY="171.0" prefHeight="199.0" prefWidth="354.0">
           <columns>
             <TableColumn fx:id="tbcName" prefWidth="98.99996948242188" text="Name">
-              <cellValueFactory><PropertyValueFactory property="name"/></cellValueFactory>
+              <cellValueFactory><PropertyValueFactory property="name" /></cellValueFactory>
             </TableColumn>
             <TableColumn fx:id="tbcManufacturer" prefWidth="126.0" text="Manufacturer">
-            <cellValueFactory><PropertyValueFactory property="manufacturer"/></cellValueFactory>
+            <cellValueFactory><PropertyValueFactory property="manufacturer" /></cellValueFactory>
             </TableColumn>
             <TableColumn fx:id="tbcType" prefWidth="128.0" text="Type">
-              <cellValueFactory><PropertyValueFactory property="itemType"/></cellValueFactory>
+              <cellValueFactory><PropertyValueFactory property="itemType" /></cellValueFactory>
             </TableColumn>
           </columns>
         </TableView>
@@ -56,11 +56,11 @@
     </Tab>
     <Tab text="Produce">
       <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-        <Label layoutX="34.0" layoutY="101.0" text="Choose Product" />
+        <Label layoutX="34.0" layoutY="101.0" onMouseClicked="#recordProductionClick" text="Choose Product" />
         <ListView fx:id="lvwProductOption" layoutX="162.0" layoutY="9.0" prefHeight="204.0" prefWidth="280.0" />
-        <Label layoutX="32.0" layoutY="234.0" text="Choose Quantity" />
-        <ComboBox fx:id="cmbQuantity" editable="true" layoutX="162.0" layoutY="230.0" prefHeight="25.0" prefWidth="204.0" />
-        <Button layoutX="162.0" layoutY="294.0" mnemonicParsing="false" text="Record Production" />
+        <Label layoutX="32.0" layoutY="234.0" onMouseClicked="#recordProductionClick" text="Choose Quantity" />
+        <ComboBox fx:id="cmbQuantity" editable="true" layoutX="162.0" layoutY="230.0" onMouseClicked="#recordProductionClick" prefHeight="25.0" prefWidth="204.0" />
+        <Button layoutX="162.0" layoutY="294.0" mnemonicParsing="false" onMouseClicked="#recordProductionClick" text="Record Production" />
       </AnchorPane>
     </Tab>
     <Tab text="Production Log">

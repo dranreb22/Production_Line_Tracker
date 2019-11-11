@@ -61,7 +61,7 @@ class DatabaseManager {
     try {
 
       //Execute a query
-      productQuery = "INSERT INTO PRODUCT(NAME, MANUFACTURER, TYPE) VALUES(?,?,?)";
+      productQuery = "INSERT INTO PRODUCT(NAME, MANUFACTURER, TYPE) VALUES(?,?,?);";
       preparedStatement = conn.prepareStatement(productQuery);
       for (String s : product) {
         preparedStatement.setString(index, s);
@@ -82,10 +82,9 @@ class DatabaseManager {
   List<Product> getAvailableProducts() {
     List<Product> productLine = new ArrayList<>();
     try {
-      productQuery = "SELECT * FROM PRODUCT";
+      productQuery = "SELECT * FROM PRODUCT;";
       preparedStatement = conn.prepareStatement(productQuery);
       result = preparedStatement.executeQuery();
-
       while (result.next()) {
         Integer ID = result.getInt("ID");
         String name = result.getString("NAME");
@@ -108,6 +107,34 @@ class DatabaseManager {
     return productLine;
   }
 
+  //void AddProductRecordDB(String name){
+/*    String[] product = {name, manufacturer, type};
+    int index = 1;
+    try {
+
+      //Execute a query
+      productQuery = "INSERT INTO PRODUCT(NAME, MANUFACTURER, TYPE) VALUES(?,?,?);";
+      preparedStatement = conn.prepareStatement(productQuery);
+      for (String s : product) {
+        preparedStatement.setString(index, s);
+        index++;
+      }
+      preparedStatement.executeUpdate();
+    } catch (Exception ex) {
+      ex.printStackTrace();
+    }
+  }*/
+
+  public void ResetIDInTable() {
+    try {
+      productQuery = "ALTER TABLE PRODUCT DROP COLUMN ID; ALTER TABLE PRODUCT ADD ID INT NOT NULL AUTO_INCREMENT BEFORE NAME; CREATE PRIMARY KEY ON PRODUCT (ID);";
+      preparedStatement = conn.prepareStatement(productQuery);
+      preparedStatement.executeUpdate();
+
+    } catch (SQLException exception) {
+      exception.printStackTrace();
+    }
+  }
   /*public void testMethod() {
 
   }*/

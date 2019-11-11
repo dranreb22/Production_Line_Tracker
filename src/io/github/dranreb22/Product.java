@@ -14,6 +14,7 @@ public abstract class Product implements Item {
   private final ItemType itemType;
   private String manufacturer;
   private String name;
+  private static int numberOfObjects = 0;
 
   /**
    * Constructor of product allowing user input of parameters name, manufacturer, and itemType.
@@ -28,14 +29,19 @@ public abstract class Product implements Item {
     this.name = name;
     this.manufacturer = manufacturer;
     this.itemType = itemType;
+    numberOfObjects++;
   }
 
   Product(String name, String manufacturer, ItemType itemType) {
     this.name = name;
     this.manufacturer = manufacturer;
     this.itemType = itemType;
+    numberOfObjects++;
   }
 
+  public static int getNumberOfProducts(){
+    return numberOfObjects;
+  }
   /**
    * Method that allows changing of the ID.
    *

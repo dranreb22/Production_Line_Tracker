@@ -1,6 +1,11 @@
 package io.github.dranreb22;
 
 import java.security.SecureRandom;
+import java.security.Timestamp;
+import java.security.cert.CertPath;
+import java.sql.Time;
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -55,7 +60,7 @@ public class ProductionController {
   /**
    * <p>
    * initialize method is the first method to run. it sets the values in the combo box, starts the
-   * database with it's defined method from DatabaseManager class, gathers information from the
+     * database with it's defined method from DatabaseManager class, gathers information from the
    * database and stores it into a list, which is then passed into an observable list,* and lastly
    * sets values to the text area, table view, and list view based on the results.
    * </p>
@@ -67,12 +72,12 @@ public class ProductionController {
       chbItemType.getItems().add(it);
       chbItemType.setValue(ItemType.AUDIO);
     }
+    cmbQuantity.setValue(1);
 
 //    setupProductLineTable();
 
     db.initializeDb();
-    List<Product> availableProducts = db.getAvailableProducts();
-    observableList = FXCollections.observableArrayList(availableProducts);
+    observableList = FXCollections.observableArrayList(db.getAvailableProducts());
     /*int randomValue = random.nextInt();
     ProductionRecord record = new ProductionRecord(randomValue);*/
     tbvExistingProducts.setItems(observableList);
@@ -84,8 +89,9 @@ public class ProductionController {
     //textArea.setText(productRecord);
   }
 
-
-/*  public void setupProductLineTable() {
+  //this was done in the fxml file by adding
+  //<cellValueFactory><PropertyValueFactory property="manufacturer"/></cellValueFactory>
+  /*public void setupProductLineTable() {
     tbcName.setCellValueFactory(new PropertyValueFactory("name"));
     tbcManufacturer.setCellValueFactory(new PropertyValueFactory("manufacturer"));
     tbcType.setCellValueFactory(new PropertyValueFactory("itemType"));
@@ -115,16 +121,34 @@ public class ProductionController {
     String prodName = txtProductName.getText();
     String prodMan = txtManufacturer.getText();
     String chosenItem = chbItemType.getValue().toString();
-
+    Integer ID;
     db.addProduct(prodName, prodMan, chosenItem);
-    System.out.println(prodName + prodMan + chosenItem);
-
-    observableList.add(new Widget(prodName, prodMan, ItemType.valueOf((chosenItem))));
+    db.ResetIDInTable();
+    System.out.println(prodName + " " + prodMan + " " + chosenItem);
+    Product product = new Widget(Product.getNumberOfProducts()+1, prodName, prodMan, ItemType.valueOf((chosenItem)));
+    observableList.add(product);
+    /*System.out.println(observableList.indexOf());
+    System.out.println(observableList.indexOf(prodName));
+    System.out.println(observableList.indexOf(chosenItem));*/
     txtProductName.clear();
     txtManufacturer.clear();
   }
 
-  /*public void recordProduction() {
-    System.out.println(lvw_productOption.getSelectionModel().getSelectedItem().getName());
-  }*/
+  @FXML
+  public void recordProductionClick(Product product) {
+    try {
+      //Timestamp today = new Timestamp(new Date(), new CertPath());
+      String selectedItem = lvwProductOption.getSelectionModel().getSelectedItem().getItemType().getItemType();
+      String selectedManufacturer = lvwProductOption.getSelectionModel().getSelectedItem().getManufacturer();
+
+      cmbQuantity.getValue();
+      ArrayList<ProductionRecord> productionRun;
+    }
+    catch (NullPointerException exception){
+      exception.printStackTrace();
+
+    }
+
+    System.out.println();
+  }
 }
