@@ -18,6 +18,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
 
 /**
  * <p>
@@ -121,9 +122,9 @@ public class ProductionController {
     String prodName = txtProductName.getText();
     String prodMan = txtManufacturer.getText();
     String chosenItem = chbItemType.getValue().toString();
-    Integer ID;
+    //Integer ID;
     db.addProduct(prodName, prodMan, chosenItem);
-    db.ResetIDInTable();
+    //db.ResetIDInTable();
     System.out.println(prodName + " " + prodMan + " " + chosenItem);
     Product product = new Widget(Product.getNumberOfProducts()+1, prodName, prodMan, ItemType.valueOf((chosenItem)));
     observableList.add(product);
@@ -135,7 +136,7 @@ public class ProductionController {
   }
 
   @FXML
-  public void recordProductionClick(Product product) {
+  public void recordProductionClick() {
     try {
       //Timestamp today = new Timestamp(new Date(), new CertPath());
       String selectedItem = lvwProductOption.getSelectionModel().getSelectedItem().getItemType().getItemType();

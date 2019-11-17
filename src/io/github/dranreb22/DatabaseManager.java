@@ -1,5 +1,8 @@
 package io.github.dranreb22;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -7,6 +10,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Properties;
 
 /**
  * Class DatabaseManager provides methods to open access to the database, as well as to get and
@@ -38,13 +42,15 @@ class DatabaseManager {
       // to create a database username and password,
       // type Create USER [username] PASSWORD "[password]"
       // to allow the user to edit the database use GRANT ALTER ANY SCHEMA TO [username]; in console
-      String user = "bernard";
-      String pass = "georges";
+
+      Properties prop = new Properties();
+      prop.load(new FileInputStream("res/properties"));
+      String pass = prop.getProperty("password");
+      String user = prop.getProperty("username");
       conn = DriverManager.getConnection(dbUrl, user, pass);
 
-    } catch (ClassNotFoundException | SQLException exception) {
+    } catch (ClassNotFoundException | SQLException | IOException exception) {
       exception.printStackTrace();
-
     }
   }
 
@@ -125,7 +131,7 @@ class DatabaseManager {
     }
   }*/
 
-  public void ResetIDInTable() {
+/*  public void ResetIDInTable() {
     try {
       productQuery = "ALTER TABLE PRODUCT DROP COLUMN ID; ALTER TABLE PRODUCT ADD ID INT NOT NULL AUTO_INCREMENT BEFORE NAME; CREATE PRIMARY KEY ON PRODUCT (ID);";
       preparedStatement = conn.prepareStatement(productQuery);
@@ -134,7 +140,7 @@ class DatabaseManager {
     } catch (SQLException exception) {
       exception.printStackTrace();
     }
-  }
+  }*/
   /*public void testMethod() {
 
   }*/

@@ -8,7 +8,7 @@ import io.github.dranreb22.interfaces.Item;
  *
  * @author Bernard Georges 9/26/2019
  */
-public abstract class Product implements Item {
+public class Product implements Item {
 
   private int ID;
   private final ItemType itemType;
