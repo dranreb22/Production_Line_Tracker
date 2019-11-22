@@ -42,9 +42,8 @@ public class ProductionController {
   private ObservableList<Product> observableList;
 
   private final DatabaseManager db = new DatabaseManager();
-  private ProductionRecord record;
   private SecureRandom random = new SecureRandom();
-  private ArrayList<ProductionRecord> productionRun = new ArrayList<>();
+  private ArrayList<ProductionRecord> recordList = new ArrayList<>();
 
   /**
    * <p>
@@ -63,6 +62,7 @@ public class ProductionController {
     }
     cmbQuantity.setValue(1);
 
+
 //    setupProductLineTable();
 
     db.initializeDb();
@@ -71,10 +71,9 @@ public class ProductionController {
     ProductionRecord record = new ProductionRecord(randomValue);*/
     tbvExistingProducts.setItems(observableList);
     lvwProductOption.setItems(observableList);
+    lvwProductOption.getSelectionModel().selectFirst();
 
     //String productRecord = record.toString();
-
-    setupProductionLog();
     //textArea.setText(productRecord);
     db.closeDB();
   }
@@ -88,17 +87,6 @@ public class ProductionController {
   }*/
 
   /**
-   * Method that initializes the production log from previous created products.
-   */
-  private void setupProductionLog() {
-    textArea.clear();
-    int randomValue = random.nextInt();
-    record = new ProductionRecord(randomValue);
-    String productRecord = record.toString();
-    textArea.setText(productRecord);
-  }
-
-  /**
    * <p>
    * method that runs when Add Product button is clicked, accepting the values from the text field,
    * storing them in the database through the method of addProduct(String, String, String) while
@@ -110,6 +98,12 @@ public class ProductionController {
   public void addProductClicked() {
     String prodName = txtProductName.getText();
     String prodMan = txtManufacturer.getText();
+    if (prodMan.length() < 4){
+      prodMan = prodMan.toUpperCase();
+    }
+    else{
+      prodMan = toCapital(prodMan);
+    }
     String chosenItem = chbItemType.getValue().toString();
     //Integer ID;
     db.addProduct(prodName, prodMan, chosenItem);
@@ -124,6 +118,11 @@ public class ProductionController {
     txtManufacturer.clear();
   }
 
+  public String toCapital(String word){
+    word = word.substring(0,1).toUpperCase() + word.substring(1).toLowerCase();
+    return word;
+  }
+
   @FXML
   private void recordProductionClick() {
     try {
@@ -134,15 +133,17 @@ public class ProductionController {
       int intID = Integer.parseInt(String.valueOf(selectedID));
       System.out.println(selectedID.getClass());
 
-      record = new ProductionRecord(selectedManufacturer, intID, selectedItemType);
+      ProductionRecord record = new ProductionRecord(selectedManufacturer, intID, selectedItemType);
       String serialNumber = record.getSerialNumber();
       int numberOfItems = Integer.parseInt(String.valueOf(cmbQuantity.getValue()));
       System.out.println(numberOfItems);
 
       for (int i = 0; i < numberOfItems; i++){
         db.addToProductionDB (selectedID, serialNumber);
+        recordList.add(record);
       }
-      productionRun.add(record);
+      loadProductionLog(recordList);
+
     }
     catch (NullPointerException exception){
       exception.printStackTrace();
@@ -150,6 +151,15 @@ public class ProductionController {
     }
 
     System.out.println();
+  }
+  /**
+   * Method that initializes the production log from previous created products.
+   */
+  private void loadProductionLog(ArrayList<ProductionRecord> recordList) {
+    textArea.clear();
+    textArea.setText((String.valueOf(recordList.get(0).getProductionNumber())));
+    textArea.appendText("\n");
+    textArea.appendText(recordList.toString());
   }
 
   public void addToProductionLog(String name, String manufacturer, String ItemType, Integer id, Integer quantity){

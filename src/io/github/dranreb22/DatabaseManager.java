@@ -113,14 +113,15 @@ public class DatabaseManager {
         String name = result.getString("NAME");
         String manufacturer = result.getString("MANUFACTURER");
         String type = result.getString("TYPE");
-        productLine.add(new Widget(ID, name, manufacturer, ItemType.valueOf(type)));
         if (type.equals("AUDIO")) {
           productLine.add(new AudioPlayer(ID, name, manufacturer));
         } else if (type.equals("VISUAL")) {
-          //productLine.add(new MoviePlayer(name, manufacturer, ItemType.valueOf(type)));
-        } else if (type.equals("VISUALMOBILE")) {
-          //productLine.add(new AudioPlayer(name, manufacturer, ItemType.valueOf(type)));
-        } else {
+          productLine.add(new MoviePlayer(ID, name, manufacturer, ItemType.valueOf(type), new Screen(null, 0, 0), MonitorType.LCD));
+        }
+/*        } else if (type.equals("VISUALMOBILE")) {
+          productLine.add(new AudioPlayer(name, manufacturer, ItemType.valueOf(type)));
+        }*/ else {
+          productLine.add(new Widget(ID, name, manufacturer, ItemType.valueOf(type)));
           //productLine.add(new AudioPlayer(name, manufacturer, ItemType.valueOf(type)));
         }
       }

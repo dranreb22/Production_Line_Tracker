@@ -53,8 +53,13 @@ class ProductionRecord {
 
 
   ProductionRecord(String manufacturer, int ID, ItemType itemType) {
-
-    String firstThree = manufacturer.substring(0, 3);
+    String firstThree;
+    if (manufacturer.length() < 3){
+      firstThree = manufacturer+ "X";
+    }
+    else {
+      firstThree = manufacturer.substring(0, 3);
+    }
 
     String itemCode = itemType.getItemType();
 
@@ -130,6 +135,6 @@ class ProductionRecord {
     return "Prod. Num: " + productionNumber
         + " Product ID: " + productID
         + " Serial Num: " + serialNumber
-        + " Date: " + dateProduced;
+        + " Date: " + dateProduced + "\n";
   }
 }

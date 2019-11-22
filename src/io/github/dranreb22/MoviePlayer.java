@@ -24,9 +24,9 @@ public class MoviePlayer extends Product implements MultimediaControl {
    * @param monitorType  Enum of value either LCD or LED
    */
 
-  MoviePlayer(Integer ID, String name, String manufacturer, Screen screen,
+  MoviePlayer(Integer ID, String name, String manufacturer, ItemType itemType, Screen screen,
       MonitorType monitorType) {
-    super(ID, name, manufacturer, ItemType.VISUAL);
+    super(ID, name, manufacturer, itemType);
     this.screen = screen;
     this.monitorType = monitorType;
   }
