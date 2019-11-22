@@ -11,10 +11,15 @@ import java.util.Date;
 
 class ProductionRecord {
 
-  private int productionNumber;
+  private static int productionNumber;
   private int productID;
   private String serialNumber;
   private Date dateProduced;
+  private static int countOfAU = 0;
+  private static int countOfVI = 0;
+  private static int countOfAM = 0;
+  private static int countOfVM = 0;
+  private String lastFive;
 
   /**
    * ProductionRecord constructor that accepts productID and sets default values to other
@@ -25,7 +30,7 @@ class ProductionRecord {
 
   ProductionRecord(int productID) {
     this.productID = productID;
-    this.productionNumber = 0;
+    productionNumber = 0;
     this.serialNumber = "0";
     this.dateProduced = new Date();
   }
@@ -34,35 +39,41 @@ class ProductionRecord {
    * Production Record constructor enables the program to assign values to the variables of the
    * object.
    *
-   * @param productionNumber Total number of items regardless of type.
    * @param productID        The ID of the product being produced.
    * @param serialNumber     The serial number of the items created depending on type.
    * @param dateProduced     The date of the item being produced (current date/time).
    */
-  ProductionRecord(int productionNumber, int productID,
+  ProductionRecord(int productID,
       String serialNumber, Date dateProduced) {
-    this.productionNumber = productionNumber;
+    productionNumber++;
     this.productID = productID;
     this.serialNumber = serialNumber;
     this.dateProduced = dateProduced;
   }
 
-  /**
-   * @param product product object of Class Product containing fields of ID, itemtype, manufacturer,
-   *                and name.
-   * @param count   counter of the product used to define the variable.
-   */
-  ProductionRecord(Product product, int count) {
-    String manufacturer = product.getManufacturer();
+
+  ProductionRecord(String manufacturer, int ID, ItemType itemType) {
 
     String firstThree = manufacturer.substring(0, 3);
 
-    String itemCode = product.getItemType().getItemType();
+    String itemCode = itemType.getItemType();
 
-    String lastFive = String.format("%05d", count);
+    if (itemCode.equals("AU")){
+      lastFive = String.format("%05d", ++countOfAU);
+    }
+    if (itemCode.equals("VI")){
+      lastFive = String.format("%05d", ++countOfVI);
+    }
+    if (itemCode.equals("AM")){
+      lastFive = String.format("%05d", ++countOfAM);
+    }
+    else {
+      lastFive = String.format("%05d", ++countOfVM);
+    }
 
     serialNumber = firstThree + itemCode + lastFive;
-
+    this.productID = ID;
+    productionNumber++;
     this.dateProduced = new Date();
 
   }
@@ -77,15 +88,6 @@ class ProductionRecord {
   }
 
   /**
-   * Method that allows setting of a production ID.
-   *
-   * @return Returns production number as an int.
-   */
-  public void setProductID(int productID) {
-    this.productID = productID;
-  }
-
-  /**
    * Method enabling access to the serial number.
    *
    * @return Returns the serial number as a String object.
@@ -94,14 +96,7 @@ class ProductionRecord {
     return serialNumber;
   }
 
-  /**
-   * Method that allows setting of a serial number.
-   *
-   * @return Returns production number as an int.
-   */
-  public void setSerialNumber(String serialNumber) {
-    this.serialNumber = serialNumber;
-  }
+
 
   /**
    * Method enabling access to date the object was created.

@@ -1,24 +1,16 @@
 package io.github.dranreb22;
 
 import java.security.SecureRandom;
-import java.security.Timestamp;
-import java.security.cert.CertPath;
-import java.sql.Time;
 import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.ListView;
-import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
-import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.input.MouseEvent;
 
 /**
  * <p>
@@ -43,12 +35,6 @@ public class ProductionController {
   @FXML
   private TextArea textArea;
   @FXML
-  private TableColumn<?, ?> tbcName;
-  @FXML
-  private TableColumn<?, ?> tbcManufacturer;
-  @FXML
-  private TableColumn<?, ?> tbcType;
-  @FXML
   private TableView<Product> tbvExistingProducts;
   @FXML
   private ListView<Product> lvwProductOption;
@@ -56,7 +42,9 @@ public class ProductionController {
   private ObservableList<Product> observableList;
 
   private final DatabaseManager db = new DatabaseManager();
+  private ProductionRecord record;
   private SecureRandom random = new SecureRandom();
+  private ArrayList<ProductionRecord> productionRun = new ArrayList<>();
 
   /**
    * <p>
@@ -88,6 +76,7 @@ public class ProductionController {
 
     setupProductionLog();
     //textArea.setText(productRecord);
+    db.closeDB();
   }
 
   //this was done in the fxml file by adding
@@ -101,10 +90,10 @@ public class ProductionController {
   /**
    * Method that initializes the production log from previous created products.
    */
-  public void setupProductionLog() {
+  private void setupProductionLog() {
     textArea.clear();
     int randomValue = random.nextInt();
-    ProductionRecord record = new ProductionRecord(randomValue);
+    record = new ProductionRecord(randomValue);
     String productRecord = record.toString();
     textArea.setText(productRecord);
   }
@@ -126,7 +115,7 @@ public class ProductionController {
     db.addProduct(prodName, prodMan, chosenItem);
     //db.ResetIDInTable();
     System.out.println(prodName + " " + prodMan + " " + chosenItem);
-    Product product = new Widget(Product.getNumberOfProducts()+1, prodName, prodMan, ItemType.valueOf((chosenItem)));
+    Product product = new Widget(Product.getNumberOfProducts(), prodName, prodMan, ItemType.valueOf((chosenItem)));
     observableList.add(product);
     /*System.out.println(observableList.indexOf());
     System.out.println(observableList.indexOf(prodName));
@@ -136,14 +125,24 @@ public class ProductionController {
   }
 
   @FXML
-  public void recordProductionClick() {
+  private void recordProductionClick() {
     try {
       //Timestamp today = new Timestamp(new Date(), new CertPath());
-      String selectedItem = lvwProductOption.getSelectionModel().getSelectedItem().getItemType().getItemType();
+      ItemType selectedItemType = lvwProductOption.getSelectionModel().getSelectedItem().getItemType();
       String selectedManufacturer = lvwProductOption.getSelectionModel().getSelectedItem().getManufacturer();
+      Integer selectedID = lvwProductOption.getSelectionModel().getSelectedItem().getID();
+      int intID = Integer.parseInt(String.valueOf(selectedID));
+      System.out.println(selectedID.getClass());
 
-      cmbQuantity.getValue();
-      ArrayList<ProductionRecord> productionRun;
+      record = new ProductionRecord(selectedManufacturer, intID, selectedItemType);
+      String serialNumber = record.getSerialNumber();
+      int numberOfItems = Integer.parseInt(String.valueOf(cmbQuantity.getValue()));
+      System.out.println(numberOfItems);
+
+      for (int i = 0; i < numberOfItems; i++){
+        db.addToProductionDB (selectedID, serialNumber);
+      }
+      productionRun.add(record);
     }
     catch (NullPointerException exception){
       exception.printStackTrace();
@@ -151,5 +150,8 @@ public class ProductionController {
     }
 
     System.out.println();
+  }
+
+  public void addToProductionLog(String name, String manufacturer, String ItemType, Integer id, Integer quantity){
   }
 }

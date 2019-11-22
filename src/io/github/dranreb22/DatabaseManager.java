@@ -8,7 +8,10 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Properties;
 
@@ -19,7 +22,7 @@ import java.util.Properties;
  * @author Bernard Georges 9/26/2019
  */
 
-class DatabaseManager {
+public class DatabaseManager {
 
   private Connection conn;
   private String productQuery;
@@ -54,6 +57,16 @@ class DatabaseManager {
     }
   }
 
+  public void closeDB() {
+    try {
+      result.close();
+      preparedStatement.close();
+      conn.close();
+    } catch (Exception e) {
+      e.printStackTrace();
+    }
+  }
+
   /**
    * Method with preparedStatement enabling access to inserting items to the Product Table.
    *
@@ -62,6 +75,7 @@ class DatabaseManager {
    * @param type         Item type of product.
    */
   void addProduct(String name, String manufacturer, String type) {
+    initializeDb();
     String[] product = {name, manufacturer, type};
     int index = 1;
     try {
@@ -74,8 +88,11 @@ class DatabaseManager {
         index++;
       }
       preparedStatement.executeUpdate();
-    } catch (Exception ex) {
+    } catch (SQLException ex) {
       ex.printStackTrace();
+    }
+    finally {
+      closeDB();
     }
   }
 
@@ -97,39 +114,49 @@ class DatabaseManager {
         String manufacturer = result.getString("MANUFACTURER");
         String type = result.getString("TYPE");
         productLine.add(new Widget(ID, name, manufacturer, ItemType.valueOf(type)));
-        /*if (type.equals("AUDIO")) {
-          productLine.add(new AudioPlayer(name, manufacturer, ItemType.valueOf(type)));
+        if (type.equals("AUDIO")) {
+          productLine.add(new AudioPlayer(ID, name, manufacturer));
         } else if (type.equals("VISUAL")) {
           //productLine.add(new MoviePlayer(name, manufacturer, ItemType.valueOf(type)));
         } else if (type.equals("VISUALMOBILE")) {
           //productLine.add(new AudioPlayer(name, manufacturer, ItemType.valueOf(type)));
         } else {
           //productLine.add(new AudioPlayer(name, manufacturer, ItemType.valueOf(type)));
-        }*/
+        }
       }
     } catch (SQLException ex) {
       ex.printStackTrace();
     }
+    finally{
+      closeDB();
+    }
     return productLine;
   }
 
-  //void AddProductRecordDB(String name){
-/*    String[] product = {name, manufacturer, type};
-    int index = 1;
-    try {
 
+  void addToProductionDB (int ID, String serialNumber){
+    initializeDb();
+    System.out.println(".");
+    try {
+      System.out.println("..");
+      SimpleDateFormat format = new SimpleDateFormat("");
+      Date now = new Date();
+      Timestamp ts = new Timestamp(now.getTime());
       //Execute a query
-      productQuery = "INSERT INTO PRODUCT(NAME, MANUFACTURER, TYPE) VALUES(?,?,?);";
+      productQuery = "INSERT INTO PRODUCTIONRECORD(PRODUCT_ID, SERIAL_NUM, DATE_PRODUCED) VALUES(?,?,?);";
       preparedStatement = conn.prepareStatement(productQuery);
-      for (String s : product) {
-        preparedStatement.setString(index, s);
-        index++;
-      }
+      preparedStatement.setInt(1, ID);
+      preparedStatement.setString(2, serialNumber);
+      preparedStatement.setTimestamp(3, ts);
       preparedStatement.executeUpdate();
-    } catch (Exception ex) {
+      System.out.println("...");
+    } catch (SQLException ex) {
       ex.printStackTrace();
     }
-  }*/
+    finally{
+      closeDB();
+    }
+  }
 
 /*  public void ResetIDInTable() {
     try {

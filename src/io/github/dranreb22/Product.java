@@ -14,7 +14,7 @@ public class Product implements Item {
   private final ItemType itemType;
   private String manufacturer;
   private String name;
-  private static int numberOfObjects = 0;
+  private static int numberOfObjects = 1;
 
   /**
    * Constructor of product allowing user input of parameters name, manufacturer, and itemType.
