@@ -11,14 +11,14 @@ import java.util.Date;
 
 class ProductionRecord {
 
-  private static int productionNumber;
+  private static int AUPRODUCTIONNUMBER;
+  private static int VIPRODUCTIONNUMBER;
+  private static int AMPRODUCTIONNUMBER;
+  private static int VMPRODUCTIONNUMBER;
+  private int productionNumber = 0;
   private int productID;
   private String serialNumber;
   private Date dateProduced;
-  private static int countOfAU = 0;
-  private static int countOfVI = 0;
-  private static int countOfAM = 0;
-  private static int countOfVM = 0;
   private String lastFive;
 
   /**
@@ -30,7 +30,7 @@ class ProductionRecord {
 
   ProductionRecord(int productID) {
     this.productID = productID;
-    productionNumber = 0;
+    this.productionNumber = 0;
     this.serialNumber = "0";
     this.dateProduced = new Date();
   }
@@ -45,7 +45,7 @@ class ProductionRecord {
    */
   ProductionRecord(int productID,
       String serialNumber, Date dateProduced) {
-    productionNumber++;
+    AUPRODUCTIONNUMBER++;
     this.productID = productID;
     this.serialNumber = serialNumber;
     this.dateProduced = dateProduced;
@@ -64,21 +64,33 @@ class ProductionRecord {
     String itemCode = itemType.getItemType();
 
     if (itemCode.equals("AU")){
-      lastFive = String.format("%05d", ++countOfAU);
+      AUPRODUCTIONNUMBER++;
+      productionNumber = AUPRODUCTIONNUMBER;
+      lastFive = String.format("%05d", AUPRODUCTIONNUMBER);
+
     }
     if (itemCode.equals("VI")){
-      lastFive = String.format("%05d", ++countOfVI);
+      VIPRODUCTIONNUMBER++;
+      productionNumber = VIPRODUCTIONNUMBER;
+      lastFive = String.format("%05d", VIPRODUCTIONNUMBER);
+
     }
     if (itemCode.equals("AM")){
-      lastFive = String.format("%05d", ++countOfAM);
+      AMPRODUCTIONNUMBER++;
+      productionNumber = AMPRODUCTIONNUMBER;
+      lastFive = String.format("%05d", AMPRODUCTIONNUMBER);
+
     }
     else {
-      lastFive = String.format("%05d", ++countOfVM);
+      VMPRODUCTIONNUMBER++;
+      productionNumber = VMPRODUCTIONNUMBER;
+      lastFive = String.format("%05d", VMPRODUCTIONNUMBER);
+
     }
 
     serialNumber = firstThree + itemCode + lastFive;
     this.productID = ID;
-    productionNumber++;
+
     this.dateProduced = new Date();
 
   }
@@ -117,8 +129,17 @@ class ProductionRecord {
    *
    * @return Returns production number as an int.
    */
-  public int getProductionNumber() {
-    return productionNumber;
+  public int getAUPRODUCTIONNUMBER() {
+    return AUPRODUCTIONNUMBER;
+  }
+  public int getVIPRODUCTIONNUMBER() {
+    return VIPRODUCTIONNUMBER;
+  }
+  public int getAMPRODUCTIONNUMBER() {
+    return AMPRODUCTIONNUMBER;
+  }
+  public int getVMPRODUCTIONNUMBER() {
+    return VMPRODUCTIONNUMBER;
   }
 
   /**
@@ -127,7 +148,7 @@ class ProductionRecord {
    * @return Returns production number as an int.
    */
   public void setProductionNumber(int productionNumber) {
-    this.productionNumber = productionNumber;
+    this.AUPRODUCTIONNUMBER = productionNumber;
   }
 
   @Override

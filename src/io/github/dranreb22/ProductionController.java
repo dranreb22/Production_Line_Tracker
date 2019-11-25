@@ -157,9 +157,8 @@ public class ProductionController {
    */
   private void loadProductionLog(ArrayList<ProductionRecord> recordList) {
     textArea.clear();
-    textArea.setText((String.valueOf(recordList.get(0).getProductionNumber())));
-    textArea.appendText("\n");
     textArea.appendText(recordList.toString());
+    System.out.println(recordList);
   }
 
   public void addToProductionLog(String name, String manufacturer, String ItemType, Integer id, Integer quantity){
