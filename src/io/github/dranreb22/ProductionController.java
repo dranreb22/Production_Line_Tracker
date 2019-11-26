@@ -62,19 +62,12 @@ public class ProductionController {
     }
     cmbQuantity.setValue(1);
 
-
-//    setupProductLineTable();
-
     db.initializeDb();
     observableList = FXCollections.observableArrayList(db.getAvailableProducts());
-    /*int randomValue = random.nextInt();
-    ProductionRecord record = new ProductionRecord(randomValue);*/
     tbvExistingProducts.setItems(observableList);
     lvwProductOption.setItems(observableList);
     lvwProductOption.getSelectionModel().selectFirst();
 
-    //String productRecord = record.toString();
-    //textArea.setText(productRecord);
     db.closeDB();
   }
 
@@ -108,17 +101,13 @@ public class ProductionController {
     //Integer ID;
     db.addProduct(prodName, prodMan, chosenItem);
     //db.ResetIDInTable();
-    System.out.println(prodName + " " + prodMan + " " + chosenItem);
     Product product = new Widget(Product.getNumberOfProducts(), prodName, prodMan, ItemType.valueOf((chosenItem)));
     observableList.add(product);
-    /*System.out.println(observableList.indexOf());
-    System.out.println(observableList.indexOf(prodName));
-    System.out.println(observableList.indexOf(chosenItem));*/
     txtProductName.clear();
     txtManufacturer.clear();
   }
 
-  public String toCapital(String word){
+  private String toCapital(String word){
     word = word.substring(0,1).toUpperCase() + word.substring(1).toLowerCase();
     return word;
   }
@@ -126,31 +115,25 @@ public class ProductionController {
   @FXML
   private void recordProductionClick() {
     try {
-      //Timestamp today = new Timestamp(new Date(), new CertPath());
       ItemType selectedItemType = lvwProductOption.getSelectionModel().getSelectedItem().getItemType();
       String selectedManufacturer = lvwProductOption.getSelectionModel().getSelectedItem().getManufacturer();
-      Integer selectedID = lvwProductOption.getSelectionModel().getSelectedItem().getID();
+      int selectedID = lvwProductOption.getSelectionModel().getSelectedItem().getID();
       int intID = Integer.parseInt(String.valueOf(selectedID));
-      System.out.println(selectedID.getClass());
 
-      ProductionRecord record = new ProductionRecord(selectedManufacturer, intID, selectedItemType);
-      String serialNumber = record.getSerialNumber();
       int numberOfItems = Integer.parseInt(String.valueOf(cmbQuantity.getValue()));
-      System.out.println(numberOfItems);
 
-      for (int i = 0; i < numberOfItems; i++){
-        db.addToProductionDB (selectedID, serialNumber);
-        recordList.add(record);
+      for (int i = 0; i < numberOfItems; i++) {
+        ProductionRecord record = new ProductionRecord(selectedManufacturer, intID, selectedItemType);
+        String serialNumber = record.getSerialNumber();
+
+          db.addToProductionDB(selectedID, serialNumber);
+          recordList.add(record);
       }
       loadProductionLog(recordList);
-
     }
     catch (NullPointerException exception){
       exception.printStackTrace();
-
     }
-
-    System.out.println();
   }
   /**
    * Method that initializes the production log from previous created products.
@@ -158,9 +141,5 @@ public class ProductionController {
   private void loadProductionLog(ArrayList<ProductionRecord> recordList) {
     textArea.clear();
     textArea.appendText(recordList.toString());
-    System.out.println(recordList);
-  }
-
-  public void addToProductionLog(String name, String manufacturer, String ItemType, Integer id, Integer quantity){
   }
 }

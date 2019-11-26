@@ -137,9 +137,7 @@ public class DatabaseManager {
 
   void addToProductionDB (int ID, String serialNumber){
     initializeDb();
-    System.out.println(".");
     try {
-      System.out.println("..");
       SimpleDateFormat format = new SimpleDateFormat("");
       Date now = new Date();
       Timestamp ts = new Timestamp(now.getTime());
@@ -150,7 +148,6 @@ public class DatabaseManager {
       preparedStatement.setString(2, serialNumber);
       preparedStatement.setTimestamp(3, ts);
       preparedStatement.executeUpdate();
-      System.out.println("...");
     } catch (SQLException ex) {
       ex.printStackTrace();
     }
