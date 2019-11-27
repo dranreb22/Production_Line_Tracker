@@ -134,11 +134,46 @@ public class DatabaseManager {
     return productLine;
   }
 
+  private int getCountOfItems(String itemCode) {
+    initializeDb();
+    int itemCount = 0;
+    try {
+      productQuery = "SELECT SERIAL_NUM FROM PRODUCTIONRECORD WHERE INSTR(SERIAL_NUM, ?);";
+      preparedStatement = conn.prepareStatement(productQuery);
+      preparedStatement.setString(1,itemCode);
+      System.out.println(itemCode);
+      result = preparedStatement.executeQuery();
+      while (result.next()) {
+        if (result.getString("SERIAL_NUM").substring(3,5).equals(itemCode))
+          itemCount++;
+      }
+    } catch (SQLException e) {
+      e.printStackTrace();
+    }finally{
+      closeDB();
+    }
+    return itemCount;
+  }
+
+  int getAUInDB(){
+    return getCountOfItems("AU");
+  }
+
+  int getAMinDB(){
+    return getCountOfItems("AM");
+  }
+
+  int getVIInDB(){
+    return getCountOfItems("VI");
+  }
+
+  int getVMInDB(){
+    return getCountOfItems("VM");
+  }
 
   void addToProductionDB (int ID, String serialNumber){
     initializeDb();
     try {
-      SimpleDateFormat format = new SimpleDateFormat("");
       Date now = new Date();
       Timestamp ts = new Timestamp(now.getTime());
       //Execute a query

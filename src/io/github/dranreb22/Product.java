@@ -39,7 +39,7 @@ public class Product implements Item {
     numberOfObjects++;
   }
 
-  public static int getNumberOfProducts(){
+  static int getNumberOfProducts(){
     return numberOfObjects;
   }
   /**
@@ -96,7 +96,7 @@ public class Product implements Item {
    *
    * @return itemType of the product initially pulled from the database.
    */
-  public ItemType getItemType() {
+  ItemType getItemType() {
     return this.itemType;
   }
 

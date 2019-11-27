@@ -20,8 +20,4 @@ class Widget extends Product {
     super(ID, name, manufacturer, type);
   }
 
-  Widget(String name, String manufacturer, ItemType type) {
-    super(name, manufacturer, type);
-  }
-
 }

@@ -19,7 +19,7 @@ In addition to the ability to record production, the software also needs the abi
         3.  Allow a user to track production of products, including specifying how many items of that product were created. The program will then create a record for each of these items and store them in a collection.
         4.  The collection of created items can be displayed at any time.
         5.  Production statistics can be displayed – Total items produced, number of each item type, the number of unique products created etc.
-        6.  Employee accounts can be made.
+        6.  io.github.dranreb22.Employee accounts can be made.
         7.  Allow easy modification to handle different products.
     -   Actual / For class
         1.  Solidify understanding of object oriented programming.

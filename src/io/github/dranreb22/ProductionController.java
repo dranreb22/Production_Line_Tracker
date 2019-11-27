@@ -1,7 +1,7 @@
 package io.github.dranreb22;
 
-import java.security.SecureRandom;
 import java.util.ArrayList;
+import java.util.Scanner;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -11,6 +11,7 @@ import javafx.scene.control.ListView;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+
 
 /**
  * <p>
@@ -33,7 +34,9 @@ public class ProductionController {
   @FXML
   private TextField txtManufacturer;
   @FXML
-  private TextArea textArea;
+  private TextArea txtProductionLog;
+  @FXML
+  private TextArea txtEmployeeLog;
   @FXML
   private TableView<Product> tbvExistingProducts;
   @FXML
@@ -42,7 +45,6 @@ public class ProductionController {
   private ObservableList<Product> observableList;
 
   private final DatabaseManager db = new DatabaseManager();
-  private SecureRandom random = new SecureRandom();
   private ArrayList<ProductionRecord> recordList = new ArrayList<>();
 
   /**
@@ -55,6 +57,16 @@ public class ProductionController {
    */
   @FXML
   public void initialize() {
+//    Scanner scan = new Scanner(System.in);
+//    System.out.println("Enter Employee Name (first last)");
+//    String name = scan.nextLine();
+//    System.out.println("Enter Employee password");
+//    String password = scan.nextLine();
+//    String reversedPassword = reversePassword(password);
+//    Employee employee = new Employee(name, reversedPassword);
+//
+//    txtEmployeeLog.setText(employee.toString());
+
     cmbQuantity.getItems().addAll(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
     for (ItemType it : ItemType.values()) {
       chbItemType.getItems().add(it);
@@ -68,7 +80,14 @@ public class ProductionController {
     lvwProductOption.setItems(observableList);
     lvwProductOption.getSelectionModel().selectFirst();
 
+
     db.closeDB();
+  }
+
+  private String reversePassword(String pw) {
+    if (pw.isEmpty())
+      return pw;
+    return reversePassword(pw.substring(1)) + pw.charAt(0);
   }
 
   //this was done in the fxml file by adding
@@ -139,7 +158,8 @@ public class ProductionController {
    * Method that initializes the production log from previous created products.
    */
   private void loadProductionLog(ArrayList<ProductionRecord> recordList) {
-    textArea.clear();
-    textArea.appendText(recordList.toString());
+    txtProductionLog.clear();
+    for (ProductionRecord productionRecord : recordList)
+      txtProductionLog.appendText(productionRecord.toString());
   }
 }

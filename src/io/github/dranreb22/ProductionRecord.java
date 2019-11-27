@@ -1,6 +1,7 @@
 package io.github.dranreb22;
 
 import java.util.Date;
+import javax.swing.undo.AbstractUndoableEdit;
 import javax.xml.bind.SchemaOutputResolver;
 
 /**
@@ -12,14 +13,22 @@ import javax.xml.bind.SchemaOutputResolver;
 
 class ProductionRecord {
 
-  private static int AUPRODUCTIONNUMBER;
-  private static int VIPRODUCTIONNUMBER;
-  private static int AMPRODUCTIONNUMBER;
-  private static int VMPRODUCTIONNUMBER;
+
   private int productionNumber = 0;
   private int productID;
   private String serialNumber;
   private Date dateProduced;
+  private DatabaseManager db = new DatabaseManager();
+
+  private int countOfAU;
+  private int countOfAM;
+  private int countOfVI;
+  private int countOfVM;
+  private static int auProductionCount;
+  private static int amProductionCount;
+  private static int viProductionCount;
+  private static int vmProductionCount;
+
 
   /**
    * ProductionRecord constructor that accepts productID and sets default values to other
@@ -33,6 +42,11 @@ class ProductionRecord {
     this.productionNumber = 0;
     this.serialNumber = "0";
     this.dateProduced = new Date();
+    countOfAU = 0;
+    countOfAM = 0;
+    countOfVI = 0;
+    countOfVM = 0;
+
   }
 
   /**
@@ -52,6 +66,17 @@ class ProductionRecord {
 
 
   ProductionRecord(String manufacturer, int ID, ItemType itemType) {
+    if (auProductionCount != getCountOfAU() && amProductionCount!= getCountOfAM()
+          && viProductionCount != getCountOfVI() && vmProductionCount != getCountOfVM()){
+      auProductionCount = getCountOfAU()+1;
+      amProductionCount = getCountOfVM()+1;
+      viProductionCount = getCountOfVI()+1;
+      vmProductionCount = getCountOfVM()+1;
+    }
+    System.out.println(auProductionCount);
+    System.out.println(amProductionCount);
+    System.out.println(viProductionCount);
+    System.out.println(vmProductionCount);
     String firstThree;
     if (manufacturer.length() == 0){
       firstThree =  "XXX";
@@ -70,39 +95,33 @@ class ProductionRecord {
 
     String lastFive;
 
-    if (itemCode.equals("AU")) {
-      AUPRODUCTIONNUMBER++;
-      lastFive = String.format("%05d", AUPRODUCTIONNUMBER);
+    switch (itemCode) {
+      case "AU":
+        lastFive = String.format("%05d", ++auProductionCount);
 
-    } else if (itemCode.equals("VI")) {
-      VIPRODUCTIONNUMBER++;
-      lastFive = String.format("%05d", VIPRODUCTIONNUMBER);
+        break;
+      case "VI":
+        lastFive = String.format("%05d", ++amProductionCount);
 
-    } else if (itemCode.equals("AM")) {
-      AMPRODUCTIONNUMBER++;
-      lastFive = String.format("%05d", AMPRODUCTIONNUMBER);
+        break;
+      case "AM":
+        lastFive = String.format("%05d", ++viProductionCount);
 
-    } else {
-      VMPRODUCTIONNUMBER++;
-      lastFive = String.format("%05d", VMPRODUCTIONNUMBER);
-
+        break;
+      case "VM":
+        lastFive = String.format("%05d", ++vmProductionCount);
+        break;
+      default:
+        lastFive = "error";
+        break;
     }
 
     productionNumber =
-        AUPRODUCTIONNUMBER + VIPRODUCTIONNUMBER + AMPRODUCTIONNUMBER + VMPRODUCTIONNUMBER;
+        auProductionCount + amProductionCount + viProductionCount + vmProductionCount;
     serialNumber = firstThree + itemCode + lastFive;
     this.productID = ID;
     this.dateProduced = new Date();
 
-  }
-
-  /**
-   * Method enabling access to productID.
-   *
-   * @return Returns the productID as an int.
-   */
-  public int getProductID() {
-    return productID;
   }
 
   /**
@@ -114,6 +133,25 @@ class ProductionRecord {
     return serialNumber;
   }
 
+  private int getCountOfAU() {
+    countOfAU= db.getAUInDB();
+    return countOfAU;
+  }
+
+  private int getCountOfAM() {
+    countOfAM= db.getAMinDB();
+    return countOfAM;
+  }
+
+  private int getCountOfVI() {
+    countOfVI= db.getVIInDB();
+    return countOfVI;
+  }
+
+  private int getCountOfVM() {
+    countOfVM= db.getVMInDB();
+    return countOfVM;
+  }
 
   @Override
   public String toString() {
