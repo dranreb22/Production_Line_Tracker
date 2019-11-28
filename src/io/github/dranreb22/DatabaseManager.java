@@ -57,6 +57,9 @@ public class DatabaseManager {
     }
   }
 
+  /**
+   * Closes database connection.
+   */
   public void closeDB() {
     try {
       result.close();
@@ -90,8 +93,7 @@ public class DatabaseManager {
       preparedStatement.executeUpdate();
     } catch (SQLException ex) {
       ex.printStackTrace();
-    }
-    finally {
+    } finally {
       closeDB();
     }
   }
@@ -116,62 +118,89 @@ public class DatabaseManager {
         if (type.equals("AUDIO")) {
           productLine.add(new AudioPlayer(ID, name, manufacturer));
         } else if (type.equals("VISUAL")) {
-          productLine.add(new MoviePlayer(ID, name, manufacturer, ItemType.valueOf(type), new Screen(null, 0, 0), MonitorType.LCD));
+          productLine.add(new MoviePlayer(ID, name, manufacturer, ItemType.valueOf(type),
+              new Screen(null, 0, 0), MonitorType.LCD));
         }
 /*        } else if (type.equals("VISUALMOBILE")) {
           productLine.add(new AudioPlayer(name, manufacturer, ItemType.valueOf(type)));
-        }*/ else {
+        }*/
+        else {
           productLine.add(new Widget(ID, name, manufacturer, ItemType.valueOf(type)));
           //productLine.add(new AudioPlayer(name, manufacturer, ItemType.valueOf(type)));
         }
       }
     } catch (SQLException ex) {
       ex.printStackTrace();
-    }
-    finally{
+    } finally {
       closeDB();
     }
     return productLine;
   }
 
+  /**
+   * Method that returns the number of items in the database. Enables the program to know what the
+   * production number should start at on every
+   *
+   * @param itemCode The item type being called
+   * @return The items in the database whose serial number matches the Type.
+   */
   private int getCountOfItems(String itemCode) {
     initializeDb();
     int itemCount = 0;
     try {
       productQuery = "SELECT SERIAL_NUM FROM PRODUCTIONRECORD WHERE INSTR(SERIAL_NUM, ?);";
       preparedStatement = conn.prepareStatement(productQuery);
-      preparedStatement.setString(1,itemCode);
+      preparedStatement.setString(1, itemCode);
       System.out.println(itemCode);
       result = preparedStatement.executeQuery();
       while (result.next()) {
-        if (result.getString("SERIAL_NUM").substring(3,5).equals(itemCode))
+        if (result.getString("SERIAL_NUM").substring(3, 5).equals(itemCode)) {
           itemCount++;
+        }
       }
     } catch (SQLException e) {
       e.printStackTrace();
-    }finally{
+    } finally {
       closeDB();
     }
     return itemCount;
   }
 
-  int getAUInDB(){
+  /**
+   * @return The count of serial numbers that contains AU.
+   */
+  int getAUInDB() {
     return getCountOfItems("AU");
   }
 
-  int getAMinDB(){
+  /**
+   * @return The count of serial numbers that contains AM.
+   */
+  int getAMinDB() {
     return getCountOfItems("AM");
   }
 
-  int getVIInDB(){
+  /**
+   * @return The count of serial numbers that contains VI.
+   */
+  int getVIInDB() {
     return getCountOfItems("VI");
   }
 
-  int getVMInDB(){
+  /**
+   * @return The count of serial numbers that contains VM.
+   */
+  int getVMInDB() {
     return getCountOfItems("VM");
   }
 
-  void addToProductionDB (int ID, String serialNumber){
+  /**
+   * Method including sql query enabling a recently produced product to be added into the database.
+   *
+   * @param ID           The product ID of the database.
+   * @param serialNumber The serial number generated from the production record class.
+   */
+  void addToProductionDB(int ID, String serialNumber) {
     initializeDb();
     try {
       Date now = new Date();
@@ -185,23 +214,9 @@ public class DatabaseManager {
       preparedStatement.executeUpdate();
     } catch (SQLException ex) {
       ex.printStackTrace();
-    }
-    finally{
+    } finally {
       closeDB();
     }
   }
 
-/*  public void ResetIDInTable() {
-    try {
-      productQuery = "ALTER TABLE PRODUCT DROP COLUMN ID; ALTER TABLE PRODUCT ADD ID INT NOT NULL AUTO_INCREMENT BEFORE NAME; CREATE PRIMARY KEY ON PRODUCT (ID);";
-      preparedStatement = conn.prepareStatement(productQuery);
-      preparedStatement.executeUpdate();
-
-    } catch (SQLException exception) {
-      exception.printStackTrace();
-    }
-  }*/
-  /*public void testMethod() {
-
-  }*/
 }

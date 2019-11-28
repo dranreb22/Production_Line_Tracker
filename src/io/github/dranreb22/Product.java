@@ -32,6 +32,11 @@ public class Product implements Item {
     numberOfObjects++;
   }
 
+  /**
+   * @param name         Name of the product.
+   * @param manufacturer Manufacturer of the product.
+   * @param itemType     Item type of the product.
+   */
   Product(String name, String manufacturer, ItemType itemType) {
     this.name = name;
     this.manufacturer = manufacturer;
@@ -39,9 +44,16 @@ public class Product implements Item {
     numberOfObjects++;
   }
 
-  static int getNumberOfProducts(){
+  /**
+   * Counter for number of products produced; enables tracking to create appropriate production
+   * number
+   *
+   * @return Number of products created.
+   */
+  static int getNumberOfProducts() {
     return numberOfObjects;
   }
+
   /**
    * Method that allows changing of the ID.
    *

@@ -50,22 +50,22 @@ public class ProductionController {
   /**
    * <p>
    * initialize method is the first method to run. it sets the values in the combo box, starts the
-     * database with it's defined method from DatabaseManager class, gathers information from the
+   * database with it's defined method from DatabaseManager class, gathers information from the
    * database and stores it into a list, which is then passed into an observable list,* and lastly
    * sets values to the text area, table view, and list view based on the results.
    * </p>
    */
   @FXML
   public void initialize() {
-//    Scanner scan = new Scanner(System.in);
-//    System.out.println("Enter Employee Name (first last)");
-//    String name = scan.nextLine();
-//    System.out.println("Enter Employee password");
-//    String password = scan.nextLine();
-//    String reversedPassword = reversePassword(password);
-//    Employee employee = new Employee(name, reversedPassword);
-//
-//    txtEmployeeLog.setText(employee.toString());
+    Scanner scan = new Scanner(System.in);
+    System.out.println("Enter Employee Name (first last)");
+    String name = scan.nextLine();
+    System.out.println("Enter Employee password");
+    String password = scan.nextLine();
+    String reversedPassword = reversePassword(password);
+    Employee employee = new Employee(name, reversedPassword);
+
+    txtEmployeeLog.setText(employee.toString());
 
     cmbQuantity.getItems().addAll(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
     for (ItemType it : ItemType.values()) {
@@ -80,23 +80,21 @@ public class ProductionController {
     lvwProductOption.setItems(observableList);
     lvwProductOption.getSelectionModel().selectFirst();
 
-
     db.closeDB();
   }
 
+  /**
+   * Method that accepts the password entered by the employee and reverses it recursively.
+   *
+   * @param pw The password entered by the employee.
+   * @return The reverse of the password.
+   */
   private String reversePassword(String pw) {
-    if (pw.isEmpty())
+    if (pw.isEmpty()) {
       return pw;
+    }
     return reversePassword(pw.substring(1)) + pw.charAt(0);
   }
-
-  //this was done in the fxml file by adding
-  //<cellValueFactory><PropertyValueFactory property="manufacturer"/></cellValueFactory>
-  /*public void setupProductLineTable() {
-    tbcName.setCellValueFactory(new PropertyValueFactory("name"));
-    tbcManufacturer.setCellValueFactory(new PropertyValueFactory("manufacturer"));
-    tbcType.setCellValueFactory(new PropertyValueFactory("itemType"));
-  }*/
 
   /**
    * <p>
@@ -110,56 +108,76 @@ public class ProductionController {
   public void addProductClicked() {
     String prodName = txtProductName.getText();
     String prodMan = txtManufacturer.getText();
-    if (prodMan.length() < 4){
+    if (prodMan.length() < 4) {
       prodMan = prodMan.toUpperCase();
-    }
-    else{
+    } else {
       prodMan = toCapital(prodMan);
     }
     String chosenItem = chbItemType.getValue().toString();
     //Integer ID;
     db.addProduct(prodName, prodMan, chosenItem);
     //db.ResetIDInTable();
-    Product product = new Widget(Product.getNumberOfProducts(), prodName, prodMan, ItemType.valueOf((chosenItem)));
+    Product product = new Widget(Product.getNumberOfProducts(), prodName, prodMan,
+        ItemType.valueOf((chosenItem)));
     observableList.add(product);
     txtProductName.clear();
     txtManufacturer.clear();
   }
 
-  private String toCapital(String word){
-    word = word.substring(0,1).toUpperCase() + word.substring(1).toLowerCase();
+  /**
+   * Capitalizes the first letter and ensures the remainder of the word is lower cased. Only to be
+   * used with 1 word at a time.
+   *
+   * @param word The word to be capitalized.
+   * @return Capitalized version of a word.
+   */
+  private String toCapital(String word) {
+    word = word.substring(0, 1).toUpperCase() + word.substring(1).toLowerCase();
     return word;
   }
 
+  /**
+   * <p>
+   * Runs when the record production button is clicked. Takes the information of the selected item
+   * in the listview and the quantity selected, creating new and storing new objects of that to the
+   * record production database, as well as updating the production log
+   * </p>
+   */
   @FXML
   private void recordProductionClick() {
     try {
-      ItemType selectedItemType = lvwProductOption.getSelectionModel().getSelectedItem().getItemType();
-      String selectedManufacturer = lvwProductOption.getSelectionModel().getSelectedItem().getManufacturer();
+      ItemType selectedItemType = lvwProductOption.getSelectionModel().getSelectedItem()
+          .getItemType();
+      String selectedManufacturer = lvwProductOption.getSelectionModel().getSelectedItem()
+          .getManufacturer();
       int selectedID = lvwProductOption.getSelectionModel().getSelectedItem().getID();
+      //list view item wasn't properly converting to an int even though it was an int already
+      //converted to an int then converted by to an int
       int intID = Integer.parseInt(String.valueOf(selectedID));
 
       int numberOfItems = Integer.parseInt(String.valueOf(cmbQuantity.getValue()));
 
       for (int i = 0; i < numberOfItems; i++) {
-        ProductionRecord record = new ProductionRecord(selectedManufacturer, intID, selectedItemType);
+        ProductionRecord record = new ProductionRecord(selectedManufacturer, intID,
+            selectedItemType);
         String serialNumber = record.getSerialNumber();
 
-          db.addToProductionDB(selectedID, serialNumber);
-          recordList.add(record);
+        db.addToProductionDB(selectedID, serialNumber);
+        recordList.add(record);
       }
       loadProductionLog(recordList);
-    }
-    catch (NullPointerException exception){
+    } catch (NullPointerException exception) {
       exception.printStackTrace();
     }
   }
+
   /**
-   * Method that initializes the production log from previous created products.
+   * Method that adds the newly created products to the log.
    */
   private void loadProductionLog(ArrayList<ProductionRecord> recordList) {
     txtProductionLog.clear();
-    for (ProductionRecord productionRecord : recordList)
+    for (ProductionRecord productionRecord : recordList) {
       txtProductionLog.appendText(productionRecord.toString());
+    }
   }
 }

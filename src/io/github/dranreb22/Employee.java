@@ -15,7 +15,7 @@ public class Employee {
     if (checkName(name)) {
       String firstInitialLastName = splitName[0].substring(0, 1) + toCapital(splitName[1]);
       String firstNameDotLastName = splitName[0].toLowerCase() + "." + splitName[1].toLowerCase();
-      this.name = toCapital(splitName[0]) +" " + toCapital(splitName[1]);
+      this.name = toCapital(splitName[0]) + " " + toCapital(splitName[1]);
       setUsername(firstInitialLastName);
       setEmail(firstNameDotLastName);
     } else {

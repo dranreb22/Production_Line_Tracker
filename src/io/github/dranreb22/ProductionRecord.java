@@ -53,9 +53,9 @@ class ProductionRecord {
    * Production Record constructor enables the program to assign values to the variables of the
    * object.
    *
-   * @param productID        The ID of the product being produced.
-   * @param serialNumber     The serial number of the items created depending on type.
-   * @param dateProduced     The date of the item being produced (current date/time).
+   * @param productID    The ID of the product being produced.
+   * @param serialNumber The serial number of the items created depending on type.
+   * @param dateProduced The date of the item being produced (current date/time).
    */
   ProductionRecord(int productID,
       String serialNumber, Date dateProduced) {
@@ -65,29 +65,34 @@ class ProductionRecord {
   }
 
 
+  /**
+   * Constructor that enables creates a new production record object, creating a serial number for
+   * the object with the count of each type of object, its manufacturer, and its item type. Sets the
+   * objects product ID to the ID passed in while settings the Date to today.
+   *
+   * @param manufacturer The manufacturer of the item.
+   * @param ID           The ID of the item from the database.
+   * @param itemType     The item type of the item.
+   */
   ProductionRecord(String manufacturer, int ID, ItemType itemType) {
-    if (auProductionCount != getCountOfAU() && amProductionCount!= getCountOfAM()
-          && viProductionCount != getCountOfVI() && vmProductionCount != getCountOfVM()){
-      auProductionCount = getCountOfAU()+1;
-      amProductionCount = getCountOfVM()+1;
-      viProductionCount = getCountOfVI()+1;
-      vmProductionCount = getCountOfVM()+1;
+    /*when the program starts, this checks that each of the static variables match
+    the equivalent number of that item types' object. If not,
+    they are set equal to that amount +1 (to prevent starting at 0)*/
+    if (auProductionCount != getCountOfAU() && amProductionCount != getCountOfAM()
+        && viProductionCount != getCountOfVI() && vmProductionCount != getCountOfVM()) {
+      auProductionCount = getCountOfAU() + 1;
+      amProductionCount = getCountOfVM() + 1;
+      viProductionCount = getCountOfVI() + 1;
+      vmProductionCount = getCountOfVM() + 1;
     }
-    System.out.println(auProductionCount);
-    System.out.println(amProductionCount);
-    System.out.println(viProductionCount);
-    System.out.println(vmProductionCount);
     String firstThree;
-    if (manufacturer.length() == 0){
-      firstThree =  "XXX";
-    }
-    else if (manufacturer.length() == 1){
-      firstThree = manufacturer.toUpperCase()+ "XX";
-    }
-    else if (manufacturer.length() == 2){
+    if (manufacturer.length() == 0) {
+      firstThree = "XXX";
+    } else if (manufacturer.length() == 1) {
+      firstThree = manufacturer.toUpperCase() + "XX";
+    } else if (manufacturer.length() == 2) {
       firstThree = manufacturer.toUpperCase() + "X";
-    }
-    else {
+    } else {
       firstThree = manufacturer.toUpperCase().substring(0, 3);
     }
 
@@ -95,6 +100,7 @@ class ProductionRecord {
 
     String lastFive;
 
+    // switch statement to set the serial number specifically to the next value of its item type.
     switch (itemCode) {
       case "AU":
         lastFive = String.format("%05d", ++auProductionCount);
@@ -116,6 +122,7 @@ class ProductionRecord {
         break;
     }
 
+    //adds the values of all 4 item types; stores them as production number.
     productionNumber =
         auProductionCount + amProductionCount + viProductionCount + vmProductionCount;
     serialNumber = firstThree + itemCode + lastFive;
@@ -133,26 +140,51 @@ class ProductionRecord {
     return serialNumber;
   }
 
+  /**
+   * Method acquiring the number of items of type AU from the database.
+   *
+   * @return Returns the count of AU as an int.
+   */
   private int getCountOfAU() {
-    countOfAU= db.getAUInDB();
+    countOfAU = db.getAUInDB();
     return countOfAU;
   }
 
+  /**
+   * Method acquiring the number of items of type AM from the database.
+   *
+   * @return Returns the count of AM as an int.
+   */
   private int getCountOfAM() {
-    countOfAM= db.getAMinDB();
+    countOfAM = db.getAMinDB();
     return countOfAM;
   }
 
+  /**
+   * Method acquiring the number of items of type VI from the database.
+   *
+   * @return Returns the count of VI as an int.
+   */
   private int getCountOfVI() {
-    countOfVI= db.getVIInDB();
+    countOfVI = db.getVIInDB();
     return countOfVI;
   }
 
+  /**
+   * Method acquiring the number of items of type VM from the database.
+   *
+   * @return Returns the count of VM as an int.
+   */
   private int getCountOfVM() {
-    countOfVM= db.getVMInDB();
+    countOfVM = db.getVMInDB();
     return countOfVM;
   }
 
+  /**
+   * Formats information from class.
+   *
+   * @return A formatted version of the product number, id, serial number, and date produced.
+   */
   @Override
   public String toString() {
     return "Prod. Num: " + productionNumber
