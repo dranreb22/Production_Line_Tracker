@@ -30,14 +30,11 @@ Gluon Scene Builder - Used in place of Swing. Used for GUI development, enabling
 style of programming, permitting the use of drag and drop (either straight to the scene
 or to the schema on the right)
 
-## Contributing
-
-
 ## Author
-
+Bernard Georges
 
 ## License
-
+GNU General Public License v3.0 - See License file
 
 ## Acknowledgments
 Jorge and Jonathan for reviewing the GIF (pronounced Jif) of my program and helping me in optimizing its speed.
