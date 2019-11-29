@@ -1,8 +1,6 @@
 package io.github.dranreb22;
 
 import java.util.Date;
-import javax.swing.undo.AbstractUndoableEdit;
-import javax.xml.bind.SchemaOutputResolver;
 
 /**
  * Class ProductionRecord allows methods to record the production being done, as well enabling
@@ -24,10 +22,10 @@ class ProductionRecord {
   private int countOfAM;
   private int countOfVI;
   private int countOfVM;
-  private static int auProductionCount;
-  private static int amProductionCount;
-  private static int viProductionCount;
-  private static int vmProductionCount;
+  private static int auProductionCount = 0;
+  private static int amProductionCount = 0;
+  private static int viProductionCount = 0;
+  private static int vmProductionCount = 0;
 
 
   /**
@@ -71,20 +69,14 @@ class ProductionRecord {
    * objects product ID to the ID passed in while settings the Date to today.
    *
    * @param manufacturer The manufacturer of the item.
-   * @param ID           The ID of the item from the database.
+   * @param id           The ID of the item from the database.
    * @param itemType     The item type of the item.
    */
-  ProductionRecord(String manufacturer, int ID, ItemType itemType) {
-    /*when the program starts, this checks that each of the static variables match
-    the equivalent number of that item types' object. If not,
-    they are set equal to that amount +1 (to prevent starting at 0)*/
-    if (auProductionCount != getCountOfAU() && amProductionCount != getCountOfAM()
-        && viProductionCount != getCountOfVI() && vmProductionCount != getCountOfVM()) {
-      auProductionCount = getCountOfAU() + 1;
-      amProductionCount = getCountOfVM() + 1;
-      viProductionCount = getCountOfVI() + 1;
-      vmProductionCount = getCountOfVM() + 1;
-    }
+  ProductionRecord(String manufacturer, int id, ItemType itemType) {
+    auProductionCount = getCountOfAU();
+    amProductionCount = getCountOfAM();
+    viProductionCount = getCountOfVI();
+    vmProductionCount = getCountOfVM();
     String firstThree;
     if (manufacturer.length() == 0) {
       firstThree = "XXX";
@@ -106,11 +98,10 @@ class ProductionRecord {
         lastFive = String.format("%05d", ++auProductionCount);
 
         break;
-      case "VI":
-        lastFive = String.format("%05d", ++amProductionCount);
-
-        break;
       case "AM":
+        lastFive = String.format("%05d", ++amProductionCount);
+        break;
+      case "VI":
         lastFive = String.format("%05d", ++viProductionCount);
 
         break;
@@ -126,7 +117,7 @@ class ProductionRecord {
     productionNumber =
         auProductionCount + amProductionCount + viProductionCount + vmProductionCount;
     serialNumber = firstThree + itemCode + lastFive;
-    this.productID = ID;
+    this.productID = id;
     this.dateProduced = new Date();
 
   }
@@ -156,7 +147,7 @@ class ProductionRecord {
    * @return Returns the count of AM as an int.
    */
   private int getCountOfAM() {
-    countOfAM = db.getAMinDB();
+    countOfAM = db.getAMInDB();
     return countOfAM;
   }
 

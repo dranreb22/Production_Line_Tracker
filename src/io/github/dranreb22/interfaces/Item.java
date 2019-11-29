@@ -2,9 +2,9 @@ package io.github.dranreb22.interfaces;
 
 public interface Item {
 
-  int getID();
+  int getId();
 
-  void setName(String name);
+  //void setName(String name);
 
   String getName();
 

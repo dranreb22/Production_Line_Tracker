@@ -16,8 +16,8 @@ class Widget extends Product {
    * @param type         ItemType of product
    */
 
-  Widget(Integer ID, String name, String manufacturer, ItemType type) {
-    super(ID, name, manufacturer, type);
+  Widget(Integer id, String name, String manufacturer, ItemType type) {
+    super(id, name, manufacturer, type);
   }
 
 }

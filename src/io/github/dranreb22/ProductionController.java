@@ -1,13 +1,14 @@
 package io.github.dranreb22;
 
 import java.util.ArrayList;
-import java.util.Scanner;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.ListView;
+import javafx.scene.control.Tab;
+import javafx.scene.control.TabPane;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
@@ -34,9 +35,21 @@ public class ProductionController {
   @FXML
   private TextField txtManufacturer;
   @FXML
+  private TextField txtFirstName;
+  @FXML
+  private TextField txtLastName;
+  @FXML
+  private TextField txtPassword;
+  @FXML
   private TextArea txtProductionLog;
   @FXML
   private TextArea txtEmployeeLog;
+  @FXML
+  private TabPane tbpProduction;
+  @FXML
+  private Tab tabEmployeeRegistration;
+  @FXML
+  private Tab tabEmployee;
   @FXML
   private TableView<Product> tbvExistingProducts;
   @FXML
@@ -44,7 +57,7 @@ public class ProductionController {
 
   private ObservableList<Product> observableList;
 
-  private final DatabaseManager db = new DatabaseManager();
+  private DatabaseManager db = new DatabaseManager();
   private ArrayList<ProductionRecord> recordList = new ArrayList<>();
 
   /**
@@ -57,15 +70,6 @@ public class ProductionController {
    */
   @FXML
   public void initialize() {
-    Scanner scan = new Scanner(System.in);
-    System.out.println("Enter Employee Name (first last)");
-    String name = scan.nextLine();
-    System.out.println("Enter Employee password");
-    String password = scan.nextLine();
-    String reversedPassword = reversePassword(password);
-    Employee employee = new Employee(name, reversedPassword);
-
-    txtEmployeeLog.setText(employee.toString());
 
     cmbQuantity.getItems().addAll(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
     for (ItemType it : ItemType.values()) {
@@ -81,6 +85,38 @@ public class ProductionController {
     lvwProductOption.getSelectionModel().selectFirst();
 
     db.closeDB();
+    tbpProduction.getSelectionModel().select(tabEmployeeRegistration);
+  }
+
+  @FXML
+  public void registerEmployeeClick() {
+    if (txtFirstName.getText().trim().equals("")) {
+      txtFirstName.setPromptText("Please don't leave this empty");
+
+    } else if (txtLastName.getText().trim().equals("")) {
+      txtLastName.setPromptText("Please don't leave this empty");
+
+    } else if (txtPassword.getText().trim().equals("")) {
+      txtPassword.setPromptText("Please don't leave this empty");
+    } else {
+      //ensures there is always a space first between words
+      String enteredName = txtFirstName.getText() + " " + txtLastName.getText();
+      String[] splitName = enteredName.split(" ");
+      // ensures only one space is visible in case user enters spaces in wrong place
+      String name = splitName[0] + " " + splitName[1];
+      String password = txtPassword.getText();
+      String reversedPassword = reversePassword(password);
+      Employee employee = new Employee(name, reversedPassword);
+
+      txtEmployeeLog.setText(employee.toString());
+      tbpProduction.getSelectionModel().select(tabEmployee);
+      txtFirstName.clear();
+      txtFirstName.setPromptText("");
+      txtLastName.clear();
+      txtLastName.setPromptText("");
+      txtPassword.clear();
+      txtPassword.setPromptText("");
+    }
   }
 
   /**
@@ -106,22 +142,28 @@ public class ProductionController {
    */
   @FXML
   public void addProductClicked() {
-    String prodName = txtProductName.getText();
-    String prodMan = txtManufacturer.getText();
-    if (prodMan.length() < 4) {
-      prodMan = prodMan.toUpperCase();
+    if (txtProductName.getText().trim().equals("")) {
+      txtProductName.setPromptText("Please don't leave this empty");
+    } else if (txtManufacturer.getText().trim().equals("")) {
+      txtManufacturer.setPromptText("Please don't leave this empty");
     } else {
-      prodMan = toCapital(prodMan);
+      String prodName = txtProductName.getText();
+      String prodMan = txtManufacturer.getText();
+      if (prodMan.length() < 4) {
+        prodMan = prodMan.toUpperCase();
+      } else {
+        prodMan = toCapital(prodMan);
+      }
+      String chosenItem = chbItemType.getValue().toString();
+      db.addProduct(prodName, prodMan, chosenItem);
+      Product product = new Widget(Product.getNumberOfProducts(), prodName, prodMan,
+          ItemType.valueOf((chosenItem)));
+      observableList.add(product);
+      txtManufacturer.setPromptText("");
+      txtProductName.setPromptText("");
+      txtProductName.clear();
+      txtManufacturer.clear();
     }
-    String chosenItem = chbItemType.getValue().toString();
-    //Integer ID;
-    db.addProduct(prodName, prodMan, chosenItem);
-    //db.ResetIDInTable();
-    Product product = new Widget(Product.getNumberOfProducts(), prodName, prodMan,
-        ItemType.valueOf((chosenItem)));
-    observableList.add(product);
-    txtProductName.clear();
-    txtManufacturer.clear();
   }
 
   /**
@@ -150,7 +192,7 @@ public class ProductionController {
           .getItemType();
       String selectedManufacturer = lvwProductOption.getSelectionModel().getSelectedItem()
           .getManufacturer();
-      int selectedID = lvwProductOption.getSelectionModel().getSelectedItem().getID();
+      int selectedID = lvwProductOption.getSelectionModel().getSelectedItem().getId();
       //list view item wasn't properly converting to an int even though it was an int already
       //converted to an int then converted by to an int
       int intID = Integer.parseInt(String.valueOf(selectedID));

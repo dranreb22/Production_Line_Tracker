@@ -1,7 +1,6 @@
 package io.github.dranreb22;
 
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -9,7 +8,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Timestamp;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -22,7 +20,7 @@ import java.util.Properties;
  * @author Bernard Georges 9/26/2019
  */
 
-public class DatabaseManager {
+class DatabaseManager {
 
   private Connection conn;
   private String productQuery;
@@ -111,22 +109,17 @@ public class DatabaseManager {
       preparedStatement = conn.prepareStatement(productQuery);
       result = preparedStatement.executeQuery();
       while (result.next()) {
-        Integer ID = result.getInt("ID");
+        Integer id = result.getInt("ID");
         String name = result.getString("NAME");
         String manufacturer = result.getString("MANUFACTURER");
         String type = result.getString("TYPE");
         if (type.equals("AUDIO")) {
-          productLine.add(new AudioPlayer(ID, name, manufacturer));
+          productLine.add(new AudioPlayer(id, name, manufacturer));
         } else if (type.equals("VISUAL")) {
-          productLine.add(new MoviePlayer(ID, name, manufacturer, ItemType.valueOf(type),
+          productLine.add(new MoviePlayer(id, name, manufacturer, ItemType.valueOf(type),
               new Screen(null, 0, 0), MonitorType.LCD));
-        }
-/*        } else if (type.equals("VISUALMOBILE")) {
-          productLine.add(new AudioPlayer(name, manufacturer, ItemType.valueOf(type)));
-        }*/
-        else {
-          productLine.add(new Widget(ID, name, manufacturer, ItemType.valueOf(type)));
-          //productLine.add(new AudioPlayer(name, manufacturer, ItemType.valueOf(type)));
+        } else {
+          productLine.add(new Widget(id, name, manufacturer, ItemType.valueOf(type)));
         }
       }
     } catch (SQLException ex) {
@@ -151,7 +144,6 @@ public class DatabaseManager {
       productQuery = "SELECT SERIAL_NUM FROM PRODUCTIONRECORD WHERE INSTR(SERIAL_NUM, ?);";
       preparedStatement = conn.prepareStatement(productQuery);
       preparedStatement.setString(1, itemCode);
-      System.out.println(itemCode);
       result = preparedStatement.executeQuery();
       while (result.next()) {
         if (result.getString("SERIAL_NUM").substring(3, 5).equals(itemCode)) {
@@ -167,6 +159,8 @@ public class DatabaseManager {
   }
 
   /**
+   * Gets the AU count from the database.
+   *
    * @return The count of serial numbers that contains AU.
    */
   int getAUInDB() {
@@ -174,20 +168,27 @@ public class DatabaseManager {
   }
 
   /**
+   * Gets the AM count from the database.
+   *
    * @return The count of serial numbers that contains AM.
    */
-  int getAMinDB() {
+  int getAMInDB() {
     return getCountOfItems("AM");
   }
 
   /**
+   * Gets the VI count from the database.
+   *
    * @return The count of serial numbers that contains VI.
    */
   int getVIInDB() {
     return getCountOfItems("VI");
+
   }
 
   /**
+   * Gets the VM count from the database.
+   *
    * @return The count of serial numbers that contains VM.
    */
   int getVMInDB() {
@@ -197,19 +198,20 @@ public class DatabaseManager {
   /**
    * Method including sql query enabling a recently produced product to be added into the database.
    *
-   * @param ID           The product ID of the database.
+   * @param id           The product ID of the database.
    * @param serialNumber The serial number generated from the production record class.
    */
-  void addToProductionDB(int ID, String serialNumber) {
+  void addToProductionDB(int id, String serialNumber) {
     initializeDb();
     try {
+      //Execute a query
+      productQuery = "INSERT INTO PRODUCTIONRECORD(PRODUCT_ID, SERIAL_NUM, DATE_PRODUCED) "
+          + "VALUES(?,?,?);";
+      preparedStatement = conn.prepareStatement(productQuery);
+      preparedStatement.setInt(1, id);
+      preparedStatement.setString(2, serialNumber);
       Date now = new Date();
       Timestamp ts = new Timestamp(now.getTime());
-      //Execute a query
-      productQuery = "INSERT INTO PRODUCTIONRECORD(PRODUCT_ID, SERIAL_NUM, DATE_PRODUCED) VALUES(?,?,?);";
-      preparedStatement = conn.prepareStatement(productQuery);
-      preparedStatement.setInt(1, ID);
-      preparedStatement.setString(2, serialNumber);
       preparedStatement.setTimestamp(3, ts);
       preparedStatement.executeUpdate();
     } catch (SQLException ex) {

@@ -10,8 +10,8 @@ import io.github.dranreb22.interfaces.Item;
  */
 public class Product implements Item {
 
-  private int ID;
-  private final ItemType itemType;
+  private int id;
+  private ItemType itemType;
   private String manufacturer;
   private String name;
   private static int numberOfObjects = 1;
@@ -24,8 +24,8 @@ public class Product implements Item {
    * @param itemType     itemType of product.
    */
 
-  Product(Integer ID, String name, String manufacturer, ItemType itemType) {
-    this.ID = ID;
+  Product(Integer id, String name, String manufacturer, ItemType itemType) {
+    this.id = id;
     this.name = name;
     this.manufacturer = manufacturer;
     this.itemType = itemType;
@@ -33,6 +33,8 @@ public class Product implements Item {
   }
 
   /**
+   * Constructor creating product object with values passed.
+   *
    * @param name         Name of the product.
    * @param manufacturer Manufacturer of the product.
    * @param itemType     Item type of the product.
@@ -44,9 +46,13 @@ public class Product implements Item {
     numberOfObjects++;
   }
 
+  public void setItemType(ItemType itemType) {
+    this.itemType = itemType;
+  }
+
   /**
    * Counter for number of products produced; enables tracking to create appropriate production
-   * number
+   * number.
    *
    * @return Number of products created.
    */
@@ -57,10 +63,10 @@ public class Product implements Item {
   /**
    * Method that allows changing of the ID.
    *
-   * @param ID ID of the product from the database.
+   * @param id ID of the product from the database.
    */
-  public void setID(Integer ID) {
-    this.ID = ID;
+  public void setId(Integer id) {
+    this.id = id;
   }
 
   /**
@@ -69,18 +75,8 @@ public class Product implements Item {
    * @return ID of the product initially pulled from the database.
    */
   @Override
-  public int getID() {
-    return ID;
-  }
-
-  /**
-   * Method that allows changing of the name.
-   *
-   * @param name Name of the product from the database.
-   */
-  @Override
-  public void setName(String name) {
-    this.name = name;
+  public int getId() {
+    return id;
   }
 
   /**
@@ -108,8 +104,8 @@ public class Product implements Item {
    *
    * @return itemType of the product initially pulled from the database.
    */
-  ItemType getItemType() {
-    return this.itemType;
+  public ItemType getItemType() {
+    return itemType;
   }
 
   /**
@@ -129,7 +125,7 @@ public class Product implements Item {
    */
   @Override
   public String toString() {
-    return "Product ID: " + ID + "\n"
+    return "Product ID: " + id + "\n"
         + "Name: " + name + "\n"
         + "Manufacturer: " + manufacturer + "\n"
         + "Type: " + itemType;

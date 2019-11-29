@@ -3,11 +3,11 @@ package io.github.dranreb22;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class Employee {
+class Employee {
 
-  private String name;
+  private final String name;
   private String username;
-  private String password;
+  private final String password;
   private String email;
 
   Employee(String name, String password) {

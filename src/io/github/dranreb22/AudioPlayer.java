@@ -24,15 +24,15 @@ public class AudioPlayer extends Product implements MultimediaControl {
    * @param supportedPlaylistFormats the format of the playlists that the player supports.
    */
 
-  public AudioPlayer(Integer ID, String name, String manufacturer, ItemType audioType,
+  public AudioPlayer(Integer id, String name, String manufacturer, ItemType audioType,
       String supportedAudioFormats, String supportedPlaylistFormats) {
-    super(ID, name, manufacturer, audioType);
+    super(id, name, manufacturer, audioType);
     this.supportedAudioFormats = supportedAudioFormats;
     this.supportedPlaylistFormats = supportedPlaylistFormats;
   }
 
-  AudioPlayer(Integer ID, String name, String manufacturer) {
-    super(ID, name, manufacturer, ItemType.AUDIO);
+  AudioPlayer(Integer id, String name, String manufacturer) {
+    super(id, name, manufacturer, ItemType.AUDIO);
     this.supportedPlaylistFormats = "default";
     this.supportedAudioFormats = "default";
   }

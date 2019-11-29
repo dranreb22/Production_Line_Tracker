@@ -1,6 +1,5 @@
 package io.github.dranreb22;
 
-
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -8,7 +7,7 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 /**
- * Default main class starts the GUI
+ * Default main class starts the GUI.
  *
  * @author Bernard Georges 9/26/2019
  */
