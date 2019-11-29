@@ -83,9 +83,7 @@
             </AnchorPane>
       </Tab>
       <Tab fx:id="tabEmployeeRegistration" text="Employee Registration">
-        <content>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-               <children>
                   <TextField fx:id="txtFirstName" layoutX="250.0" layoutY="67.0" />
                   <TextField fx:id="txtPassword" layoutX="250.0" layoutY="175.0" />
                   <Text layoutX="126.0" layoutY="135.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Last Name" wrappingWidth="71.13671875" />
@@ -93,9 +91,7 @@
                   <Button layoutX="205.0" layoutY="242.0" mnemonicParsing="false" onMouseClicked="#registerEmployeeClick" text="Register" />
                   <Text layoutX="126.0" layoutY="84.0" strokeType="OUTSIDE" strokeWidth="0.0" text="First Name" wrappingWidth="71.13671875" />
                   <TextField fx:id="txtLastName" layoutX="250.0" layoutY="118.0" />
-               </children>
             </AnchorPane>
-        </content>
       </Tab>
   </TabPane>
   <!--<stylesheets> this is done in the grid pane declaration
