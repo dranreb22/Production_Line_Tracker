@@ -23,7 +23,12 @@ at local coffee stations, the engineering lounge at school, and really anywhere 
 
 
 ## Built With
-
+IntelliJ IDEA Ultimate - Enables the use of creating Java applications, either console based or GUI.
+The ultimate version also has built in Database tools without having to install any plug ins. Enabled the author
+to create multiple class files, directories, xml files, etc.
+Gluon Scene Builder - Used in place of Swing. Used for GUI development, enabling a visual basic-esque
+style of programming, permitting the use of drag and drop (either straight to the scene
+or to the schema on the right)
 
 ## Contributing
 
