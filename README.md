@@ -19,9 +19,6 @@ at local coffee stations, the engineering lounge at school, and really anywhere 
 ![Production Record Table](/Diagrams/PRODUCTIONRECORD%20Table%20Diagram.png)
 ![Production Classes](/Diagrams/Production%20Line%20Tracker%20Classes%20Diagram.png)
 
-## Getting Started
-
-
 ## Built With
 IntelliJ IDEA Ultimate - Enables the use of creating Java applications, either console based or GUI.
 The ultimate version also has built in Database tools without having to install any plug ins. Enabled the author
