@@ -1,0 +1,43 @@
+<html><head>
+  <SCRIPT src="http://java.com/js/dtjava.js"></SCRIPT>
+<script>
+    function launchApplication(jnlpfile) {
+        dtjava.launch(            {
+                url : 'Production_Line_Tracker.jnlp'
+            },
+            {
+                javafx : '8.0+'
+            },
+            {}
+        );
+        return false;
+    }
+</script>
+
+<script>
+    function javafxEmbedProduction_Line_Tracker_id() {
+        dtjava.embed(
+            {
+                id : 'Production_Line_Tracker_id',
+                url : 'Production_Line_Tracker.jnlp',
+                placeholder : 'javafx-app-placeholder',
+                width : '600',
+                height : '400'
+            },
+            {
+                javafx : '8.0+'
+            },
+            {}
+        );
+    }
+    <!-- Embed FX application into web page once page is loaded -->
+    dtjava.addOnloadCallback(javafxEmbedProduction_Line_Tracker_id);
+</script>
+
+</head><body>
+<h2>Test page for <b>Production_Line_Tracker</b></h2>
+  <b>Webstart:</b> <a href='Production_Line_Tracker.jnlp' onclick="return launchApplication('Production_Line_Tracker.jnlp');">click to launch this app as webstart</a><br><hr><br>
+
+  <!-- Applet will be inserted here -->
+  <div id='javafx-app-placeholder'></div>
+</body></html>

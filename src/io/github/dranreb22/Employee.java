@@ -101,7 +101,7 @@ class Employee {
 
   /**
    * Overloaded to string method printing out the Employee Details.
-   * @return
+   * @return Formatted String of Employee Information
    */
   @Override
   public String toString() {
