@@ -20,27 +20,28 @@ at local coffee stations, the engineering lounge at school, and really anywhere 
 ![Production Classes](/Diagrams/Production%20Line%20Tracker%20Classes%20Diagram.png)
 
 ## Getting Started
-
+1. Clone or download the the program. Unzip the download.
+2. Open/import the project through your preferred IDE (Intellij, Eclipse, etc)
+3. Run the program through the Main class and test out it's functionality.
 
 ## Built With
-IntelliJ IDEA Ultimate - Enables the use of creating Java applications, either console based or GUI.
-The ultimate version also has built in Database tools without having to install any plug ins. Enabled the author
+* IntelliJ IDEA Ultimate - Enables the use of creating Java applications, either console based or GUI.
+* The ultimate version also has built in Database tools without having to install any plug ins. Enabled the author
 to create multiple class files, directories, xml files, etc.
-Gluon Scene Builder - Used in place of Swing. Used for GUI development, enabling a visual basic-esque
+* Gluon Scene Builder - Used in place of Swing. Used for GUI development, enabling a visual basic-esque
 style of programming, permitting the use of drag and drop (either straight to the scene
 or to the schema on the right)
 
-## Contributing
-
-
 ## Author
-
+Bernard Georges
 
 ## License
-
+GNU General Public License v3.0 - See License file
 
 ## Acknowledgments
-Jorge and Jonathan for reviewing the GIF (pronounced Jif) of my program and helping me in optimizing its speed.
+*Jorge and Jonathan for reviewing the GIF (pronounced Jif) of my program and helping me in optimizing its speed.
+*Camtasia Studio - Used to create the GIF
+*Intellij IDEA ULTIMATE - Used to write the program
 
 
 
