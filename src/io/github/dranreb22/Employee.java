@@ -90,7 +90,7 @@ class Employee {
   }
 
   /**
-   * Capitizes first letter of the word and lower cases the remaining characters.
+   * Capitalizes first letter of the word and lower cases the remaining characters.
    * @param word The word being entered.
    * @return The capitalized version of said word.
    */
