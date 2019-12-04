@@ -1,5 +1,6 @@
 package io.github.dranreb22;
 
+import java.sql.SQLException;
 import java.util.Date;
 
 /**
@@ -15,6 +16,7 @@ class ProductionRecord {
   private int productionNumber = 0;
   private int productID;
   private String serialNumber;
+  private String prodName;
   private Date dateProduced;
   private DatabaseManager db = new DatabaseManager();
 
@@ -22,10 +24,6 @@ class ProductionRecord {
   private int countOfAM;
   private int countOfVI;
   private int countOfVM;
-  private static int auProductionCount = 0;
-  private static int amProductionCount = 0;
-  private static int viProductionCount = 0;
-  private static int vmProductionCount = 0;
 
 
   /**
@@ -55,7 +53,7 @@ class ProductionRecord {
    * @param serialNumber The serial number of the items created depending on type.
    * @param dateProduced The date of the item being produced (current date/time).
    */
-  ProductionRecord(int productID,
+  ProductionRecord(int productID, String productionNum,
       String serialNumber, Date dateProduced) {
     this.productID = productID;
     this.serialNumber = serialNumber;
@@ -72,11 +70,13 @@ class ProductionRecord {
    * @param id           The ID of the item from the database.
    * @param itemType     The item type of the item.
    */
-  ProductionRecord(String manufacturer, int id, ItemType itemType) {
-    auProductionCount = getCountOfAU();
-    amProductionCount = getCountOfAM();
-    viProductionCount = getCountOfVI();
-    vmProductionCount = getCountOfVM();
+  ProductionRecord(String prodName, String manufacturer, int id, ItemType itemType)
+      throws SQLException {
+    this.prodName = prodName;
+    int auProductionCount = getCountOfAU();
+    int amProductionCount = getCountOfAM();
+    int viProductionCount = getCountOfVI();
+    int vmProductionCount = getCountOfVM();
     String firstThree;
     if (manufacturer.length() == 0) {
       firstThree = "XXX";
@@ -136,7 +136,7 @@ class ProductionRecord {
    *
    * @return Returns the count of AU as an int.
    */
-  private int getCountOfAU() {
+  private int getCountOfAU() throws SQLException {
     countOfAU = db.getAUInDB();
     return countOfAU;
   }
@@ -146,7 +146,7 @@ class ProductionRecord {
    *
    * @return Returns the count of AM as an int.
    */
-  private int getCountOfAM() {
+  private int getCountOfAM() throws SQLException {
     countOfAM = db.getAMInDB();
     return countOfAM;
   }
@@ -156,7 +156,7 @@ class ProductionRecord {
    *
    * @return Returns the count of VI as an int.
    */
-  private int getCountOfVI() {
+  private int getCountOfVI() throws SQLException {
     countOfVI = db.getVIInDB();
     return countOfVI;
   }
@@ -166,7 +166,7 @@ class ProductionRecord {
    *
    * @return Returns the count of VM as an int.
    */
-  private int getCountOfVM() {
+  private int getCountOfVM() throws SQLException {
     countOfVM = db.getVMInDB();
     return countOfVM;
   }
@@ -178,7 +178,8 @@ class ProductionRecord {
    */
   @Override
   public String toString() {
-    return "Prod. Num: " + productionNumber
+    return "Prod. Name: " + prodName
+        + " Prod. Num: " + productionNumber
         + " Product ID: " + productID
         + " Serial Num: " + serialNumber
         + " Date: " + dateProduced + "\n";

@@ -105,7 +105,7 @@ class DatabaseManager {
   List<Product> getAvailableProducts() {
     List<Product> productLine = new ArrayList<>();
     try {
-      productQuery = "SELECT * FROM PRODUCT;";
+      productQuery = "SELECT * FROM PRODUCT";
       preparedStatement = conn.prepareStatement(productQuery);
       result = preparedStatement.executeQuery();
       while (result.next()) {
@@ -137,7 +137,7 @@ class DatabaseManager {
    * @param itemCode The item type being called
    * @return The items in the database whose serial number matches the Type.
    */
-  private int getCountOfItems(String itemCode) {
+  private int getCountOfItems(String itemCode) throws SQLException {
     initializeDb();
     int itemCount = 0;
     try {
@@ -152,8 +152,6 @@ class DatabaseManager {
       }
     } catch (SQLException e) {
       e.printStackTrace();
-    } finally {
-      closeDB();
     }
     return itemCount;
   }
@@ -163,7 +161,7 @@ class DatabaseManager {
    *
    * @return The count of serial numbers that contains AU.
    */
-  int getAUInDB() {
+  int getAUInDB() throws SQLException {
     return getCountOfItems("AU");
   }
 
@@ -172,7 +170,7 @@ class DatabaseManager {
    *
    * @return The count of serial numbers that contains AM.
    */
-  int getAMInDB() {
+  int getAMInDB() throws SQLException {
     return getCountOfItems("AM");
   }
 
@@ -181,7 +179,7 @@ class DatabaseManager {
    *
    * @return The count of serial numbers that contains VI.
    */
-  int getVIInDB() {
+  int getVIInDB() throws SQLException {
     return getCountOfItems("VI");
 
   }
@@ -191,7 +189,7 @@ class DatabaseManager {
    *
    * @return The count of serial numbers that contains VM.
    */
-  int getVMInDB() {
+  int getVMInDB() throws SQLException {
     return getCountOfItems("VM");
   }
 
@@ -221,4 +219,25 @@ class DatabaseManager {
     }
   }
 
+  public List<ProductionRecord> getRecordedProducts() {
+    List<ProductionRecord> recordedProducts = new ArrayList<>();
+    try {
+      productQuery = "SELECT * FROM PRODUCTIONRECORD;";
+      preparedStatement = conn.prepareStatement(productQuery);
+      result = preparedStatement.executeQuery();
+      while (result.next()) {
+        int id = result.getInt("PRODUCT_id");
+        String productionNum = result.getString("PRODUCTION_NUM");
+        String serialNum = result.getString("SERIAL_NUM");
+        Timestamp dateProduced = result.getTimestamp("DATE_PRODUCED");
+        recordedProducts.add(new ProductionRecord(id, productionNum, serialNum, dateProduced));
+      }
+
+    } catch (SQLException ex) {
+      ex.printStackTrace();
+    } finally {
+      closeDB();
+    }
+    return recordedProducts;
+  }
 }

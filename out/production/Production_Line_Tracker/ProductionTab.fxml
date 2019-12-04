@@ -19,7 +19,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Text?>
 
-<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="420.0" minWidth="500.0" prefHeight="300.0" prefWidth="500.0" stylesheets="/io/github/dranreb22/fxml_design/productLine.css" xmlns="http://javafx.com/javafx/8.0.131" xmlns:fx="http://javafx.com/fxml/1" fx:controller="io.github.dranreb22.ProductionController">
+  <GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="420.0" minWidth="500.0" prefHeight="300.0" prefWidth="500.0" stylesheets="/io/github/dranreb22/fxml_design/productLine.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="io.github.dranreb22.ProductionController">
   <columnConstraints>
     <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
     <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -32,11 +32,12 @@
   <TabPane fx:id="tbpProduction" prefHeight="300.0" prefWidth="500.0" tabClosingPolicy="UNAVAILABLE" GridPane.columnSpan="2" GridPane.rowSpan="3">
     <Tab text="Produce">
       <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-        <Label layoutX="34.0" layoutY="101.0" text="Choose Product" />
-        <ListView fx:id="lvwProductOption" layoutX="162.0" layoutY="9.0" prefHeight="204.0" prefWidth="280.0" />
-        <Label layoutX="32.0" layoutY="234.0" text="Choose Quantity" />
-        <ComboBox fx:id="cmbQuantity" editable="true" layoutX="162.0" layoutY="230.0" prefHeight="25.0" prefWidth="204.0" />
-        <Button layoutX="162.0" layoutY="294.0" mnemonicParsing="false" onMouseClicked="#recordProductionClick" text="Record Production" />
+        <Label layoutX="35.0" layoutY="138.0" text="Choose Product" />
+        <ListView fx:id="lvwProductOption" layoutX="162.0" layoutY="44.0" prefHeight="204.0" prefWidth="280.0" />
+        <Label layoutX="33.0" layoutY="279.0" text="Choose Quantity" />
+        <ComboBox fx:id="cmbQuantity" editable="true" layoutX="162.0" layoutY="275.0" prefHeight="25.0" prefWidth="204.0" />
+        <Button layoutX="162.0" layoutY="325.0" mnemonicParsing="false" onMouseClicked="#recordProductionClick" text="Record Production" />
+            <Label fx:id="lblNotSelected" layoutX="189.0" layoutY="14.0" prefHeight="17.0" prefWidth="208.0" visible="false" />
       </AnchorPane>
     </Tab>
     <Tab text="Production Log">

@@ -1,11 +1,13 @@
 package io.github.dranreb22;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;
@@ -40,6 +42,8 @@ public class ProductionController {
   private TextField txtLastName;
   @FXML
   private TextField txtPassword;
+  @FXML
+  private Label lblNotSelected;
   @FXML
   private TextArea txtProductionLog;
   @FXML
@@ -83,7 +87,6 @@ public class ProductionController {
     tbvExistingProducts.setItems(observableList);
     lvwProductOption.setItems(observableList);
     lvwProductOption.getSelectionModel().selectFirst();
-
     db.closeDB();
     tbpProduction.getSelectionModel().select(tabEmployeeRegistration);
   }
@@ -181,17 +184,21 @@ public class ProductionController {
   /**
    * <p>
    * Runs when the record production button is clicked. Takes the information of the selected item
-   * in the listview and the quantity selected, creating new and storing new objects of that to the
+   * in the list view and the quantity selected, creating new and storing new objects of that to the
    * record production database, as well as updating the production log
    * </p>
    */
   @FXML
-  private void recordProductionClick() {
-    try {
+  private void recordProductionClick() throws SQLException {
+    if (lvwProductOption.getSelectionModel().getSelectedItem() == null) {
+      lblNotSelected.setText("Please select an Item!");
+      lblNotSelected.setVisible(true);
+    } else {
       ItemType selectedItemType = lvwProductOption.getSelectionModel().getSelectedItem()
           .getItemType();
       String selectedManufacturer = lvwProductOption.getSelectionModel().getSelectedItem()
           .getManufacturer();
+      String selectedName = lvwProductOption.getSelectionModel().getSelectedItem().getName();
       int selectedID = lvwProductOption.getSelectionModel().getSelectedItem().getId();
       //list view item wasn't properly converting to an int even though it was an int already
       //converted to an int then converted by to an int
@@ -200,7 +207,7 @@ public class ProductionController {
       int numberOfItems = Integer.parseInt(String.valueOf(cmbQuantity.getValue()));
 
       for (int i = 0; i < numberOfItems; i++) {
-        ProductionRecord record = new ProductionRecord(selectedManufacturer, intID,
+        ProductionRecord record = new ProductionRecord(selectedName, selectedManufacturer, intID,
             selectedItemType);
         String serialNumber = record.getSerialNumber();
 
@@ -208,8 +215,9 @@ public class ProductionController {
         recordList.add(record);
       }
       loadProductionLog(recordList);
-    } catch (NullPointerException exception) {
-      exception.printStackTrace();
+      if (lblNotSelected.isVisible()) {
+        lblNotSelected.setVisible(false);
+      }
     }
   }
 
