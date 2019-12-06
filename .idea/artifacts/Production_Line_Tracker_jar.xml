@@ -1,0 +1,9 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="Production_Line_Tracker:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/Production_Line_Tracker_jar</output-path>
+    <root id="archive" name="Production_Line_Tracker.jar">
+      <element id="module-output" name="Production_Line_Tracker" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/res/h2-1.4.199.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>

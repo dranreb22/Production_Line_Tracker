@@ -1,4 +1,4 @@
-# Project Title
+# Production Line Tracker
 This project is a program that enables users to add new products to the database,
 record when the products are produced, as well as how many products were produced.
 This project was made by me, Bernard Georges, throughout the Fall Semester of 2019
