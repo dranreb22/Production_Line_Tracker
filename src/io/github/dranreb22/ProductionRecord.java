@@ -53,8 +53,10 @@ class ProductionRecord {
    * @param serialNumber The serial number of the items created depending on type.
    * @param dateProduced The date of the item being produced (current date/time).
    */
-  ProductionRecord(int productID, String productionNum,
+  ProductionRecord(String prodName, int productID, int productionNumber,
       String serialNumber, Date dateProduced) {
+    this.prodName = prodName;
+    this.productionNumber = productionNumber;
     this.productID = productID;
     this.serialNumber = serialNumber;
     this.dateProduced = dateProduced;

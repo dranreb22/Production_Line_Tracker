@@ -199,18 +199,19 @@ class DatabaseManager {
    * @param id           The product ID of the database.
    * @param serialNumber The serial number generated from the production record class.
    */
-  void addToProductionDB(int id, String serialNumber) {
+  void addToProductionDB(String name, int id, String serialNumber) {
     initializeDb();
     try {
       //Execute a query
-      productQuery = "INSERT INTO PRODUCTIONRECORD(PRODUCT_ID, SERIAL_NUM, DATE_PRODUCED) "
-          + "VALUES(?,?,?);";
+      productQuery = "INSERT INTO PRODUCTIONRECORD(PRODUCT_ID, NAME, SERIAL_NUM, DATE_PRODUCED) "
+          + "VALUES(?,?, ?,?);";
       preparedStatement = conn.prepareStatement(productQuery);
       preparedStatement.setInt(1, id);
-      preparedStatement.setString(2, serialNumber);
+      preparedStatement.setString(3, serialNumber);
+      preparedStatement.setString(2, name);
       Date now = new Date();
       Timestamp ts = new Timestamp(now.getTime());
-      preparedStatement.setTimestamp(3, ts);
+      preparedStatement.setTimestamp(4, ts);
       preparedStatement.executeUpdate();
     } catch (SQLException ex) {
       ex.printStackTrace();
@@ -219,18 +220,20 @@ class DatabaseManager {
     }
   }
 
-  public List<ProductionRecord> getRecordedProducts() {
-    List<ProductionRecord> recordedProducts = new ArrayList<>();
+  public ArrayList<ProductionRecord> getRecordedProducts() {
+    initializeDb();
+    ArrayList<ProductionRecord> recordedProducts = new ArrayList<>();
     try {
       productQuery = "SELECT * FROM PRODUCTIONRECORD;";
       preparedStatement = conn.prepareStatement(productQuery);
       result = preparedStatement.executeQuery();
       while (result.next()) {
         int id = result.getInt("PRODUCT_id");
-        String productionNum = result.getString("PRODUCTION_NUM");
+        String name = result.getString("NAME");
+        int productionNum = result.getInt("PRODUCTION_NUM");
         String serialNum = result.getString("SERIAL_NUM");
         Timestamp dateProduced = result.getTimestamp("DATE_PRODUCED");
-        recordedProducts.add(new ProductionRecord(id, productionNum, serialNum, dateProduced));
+        recordedProducts.add(new ProductionRecord(name, id, productionNum, serialNum, dateProduced));
       }
 
     } catch (SQLException ex) {

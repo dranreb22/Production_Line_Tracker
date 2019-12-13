@@ -1,0 +1,299 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="Production_Line_Tracker" />
+    </artifacts-to-build>
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="1d849f8f-4ad3-41c0-90c7-4c4497bdc69d" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="production" type="feb32156:DbDataSourceImpl" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="production" type="feb32156:DbDataSourceImpl" />
+        <item name="PRODUCTION: database" type="2aa06773:H2ImplModel$Database" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="production" type="feb32156:DbDataSourceImpl" />
+        <item name="PRODUCTION: database" type="2aa06773:H2ImplModel$Database" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="production" type="feb32156:DbDataSourceImpl" />
+        <item name="PRODUCTION: database" type="2aa06773:H2ImplModel$Database" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="PUBLIC: schema" type="7f85d983:H2ImplModel$Schema" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="production" type="feb32156:DbDataSourceImpl" />
+        <item name="PRODUCTION: database" type="2aa06773:H2ImplModel$Database" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="PUBLIC: schema" type="7f85d983:H2ImplModel$Schema" />
+        <item name="tables" type="d4e8921:DatabaseStructure$FamilyGroup" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="production" type="feb32156:DbDataSourceImpl" />
+        <item name="PRODUCTION: database" type="2aa06773:H2ImplModel$Database" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="PUBLIC: schema" type="7f85d983:H2ImplModel$Schema" />
+        <item name="tables" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="PRODUCT: table" type="818c1b4a:H2ImplModel$Table" />
+      </path>
+    </expand>
+    <select />
+  </component>
+  <component name="FavoritesManager">
+    <favorites_list name="Production_Line_Tracker" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="UPDATE_TYPE" value="MERGE" />
+  </component>
+  <component name="ProjectId" id="1UD5RiIGGjK8YEu1okMpYDov6aM" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="GenerateAntBuildDialog.backupFiles" value="true" />
+    <property name="GenerateAntBuildDialog.enableUiFormCompile" value="true" />
+    <property name="GenerateAntBuildDialog.forceTargetJdk" value="true" />
+    <property name="GenerateAntBuildDialog.outputFileNameProperty" value="production_line_tracker" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/res/h2-1.4.199.jar!/" />
+    <property name="project.structure.last.edited" value="Artifacts" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
+    <property name="settings.editor.selected.configurable" value="preferences.sourceCode" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Bernard\OneDrive - Florida Gulf Coast University\COP3003\IDEA Projects\Production_Line_Tracker\res" />
+      <recent name="C:\Users\Bernard\OneDrive - Florida Gulf Coast University\COP3003\IDEA Projects\Production_Line_Tracker\resources" />
+      <recent name="C:\Users\Bernard\OneDrive - Florida Gulf Coast University\COP3003\IDEA Projects\Production_Line_Tracker\src\io\github\dranreb22\resources" />
+      <recent name="C:\Users\Bernard\OneDrive - Florida Gulf Coast University\COP3003\IDEA Projects\Production_Line_Tracker\src\io\github\dranreb22\resources\fxml" />
+      <recent name="C:\Users\Bernard\OneDrive - Florida Gulf Coast University\COP3003\IDEA Projects\Production_Line_Tracker\Images" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="io.github.dranreb22.Main" />
+      <module name="Production_Line_Tracker" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="io.github.dranreb22.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Main" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand>
+              <path>
+                <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
+                <item name="root:production" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+              </path>
+              <path>
+                <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
+                <item name="root:production" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+                <item name="com.intellij.database.console.session.MessageBusSession@7bc36ff6" type="9fbbdea:ServiceModel$ServiceNode" />
+              </path>
+              <path>
+                <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
+                <item name="root:production" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+                <item name="com.intellij.database.console.session.MessageBusSession@7065f43c" type="9fbbdea:ServiceModel$ServiceNode" />
+              </path>
+            </expand>
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="1d849f8f-4ad3-41c0-90c7-4c4497bdc69d" name="Default Changelist" comment="" />
+      <created>1574878319770</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1574878319770</updated>
+      <workItem from="1574878326482" duration="39502000" />
+      <workItem from="1575003849514" duration="4677000" />
+      <workItem from="1575012881274" duration="1075000" />
+      <workItem from="1575100458210" duration="5572000" />
+      <workItem from="1575183327550" duration="97000" />
+      <workItem from="1575183456432" duration="594000" />
+      <workItem from="1575186886835" duration="72000" />
+      <workItem from="1575189708561" duration="2007000" />
+      <workItem from="1575443002422" duration="1688000" />
+      <workItem from="1575702695643" duration="1230000" />
+    </task>
+    <task id="LOCAL-00001" summary="Final touches on javadocs; program runs to spec; doesnt necessarily include checking for an empty text box">
+      <created>1574920303661</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1574920303661</updated>
+    </task>
+    <task id="LOCAL-00002" summary="ensuring all functions working as intended; some intellij warnings caused issues with my code (ignored the warnings that caused those problems.">
+      <created>1574988912242</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1574988912242</updated>
+    </task>
+    <task id="LOCAL-00003" summary="finishing documentation of readme, getting diagrams, and adding docs directory">
+      <created>1574991474373</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1574991474373</updated>
+    </task>
+    <task id="LOCAL-00004" summary="working on readme">
+      <created>1575000015277</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1575000015277</updated>
+    </task>
+    <task id="LOCAL-00005" summary="working on readme">
+      <created>1575001864654</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1575001864654</updated>
+    </task>
+    <task id="LOCAL-00006" summary="final touches">
+      <created>1575014996077</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1575014996077</updated>
+    </task>
+    <task id="LOCAL-00007" summary="added javadocs to Employee class">
+      <created>1575142232429</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1575142232429</updated>
+    </task>
+    <task id="LOCAL-00008" summary="finalizing readme and javadocs">
+      <created>1575302710400</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1575302710400</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Final touches on javadocs; program runs to spec; doesnt necessarily include checking for an empty text box" />
+    <MESSAGE value="ensuring all functions working as intended; some intellij warnings caused issues with my code (ignored the warnings that caused those problems." />
+    <MESSAGE value="finishing documentation of readme, getting diagrams, and adding docs directory" />
+    <MESSAGE value="working on readme" />
+    <MESSAGE value="final touches" />
+    <MESSAGE value="added javadocs to Employee class" />
+    <MESSAGE value="finalizing readme and javadocs" />
+    <option name="LAST_COMMIT_MESSAGE" value="finalizing readme and javadocs" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="397" y="119" key="CommitChangelistDialog2" timestamp="1575302709013">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="397" y="119" key="CommitChangelistDialog2/0.0.1920.1050/1920.0.1858.1080/-1858.0.1858.1080@0.0.1920.1050" timestamp="1575302709013" />
+    <state width="917" height="264" key="GridCell.Tab.0.bottom" timestamp="1575704930959">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state width="917" height="264" key="GridCell.Tab.0.bottom/1920.0.1920.1050/-1858.0.1858.1080/0.0.1920.1050@0.0.1920.1050" timestamp="1575704930959" />
+    <state width="1249" height="264" key="GridCell.Tab.0.bottom/1920.0.1920.1050/-1858.0.1858.1080/0.0.1920.1050@1920.0.1920.1050" timestamp="1575702830079" />
+    <state width="917" height="264" key="GridCell.Tab.0.center" timestamp="1575704930957">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state width="917" height="264" key="GridCell.Tab.0.center/1920.0.1920.1050/-1858.0.1858.1080/0.0.1920.1050@0.0.1920.1050" timestamp="1575704930957" />
+    <state width="1249" height="264" key="GridCell.Tab.0.center/1920.0.1920.1050/-1858.0.1858.1080/0.0.1920.1050@1920.0.1920.1050" timestamp="1575702830078" />
+    <state width="917" height="264" key="GridCell.Tab.0.left" timestamp="1575704930956">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state width="917" height="264" key="GridCell.Tab.0.left/1920.0.1920.1050/-1858.0.1858.1080/0.0.1920.1050@0.0.1920.1050" timestamp="1575704930956" />
+    <state width="1249" height="264" key="GridCell.Tab.0.left/1920.0.1920.1050/-1858.0.1858.1080/0.0.1920.1050@1920.0.1920.1050" timestamp="1575702830078" />
+    <state width="917" height="264" key="GridCell.Tab.0.right" timestamp="1575704930958">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state width="917" height="264" key="GridCell.Tab.0.right/1920.0.1920.1050/-1858.0.1858.1080/0.0.1920.1050@0.0.1920.1050" timestamp="1575704930958" />
+    <state width="1249" height="264" key="GridCell.Tab.0.right/1920.0.1920.1050/-1858.0.1858.1080/0.0.1920.1050@1920.0.1920.1050" timestamp="1575702830079" />
+    <state x="552" y="257" key="Vcs.Push.Dialog.v2" timestamp="1575302712093">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="552" y="257" key="Vcs.Push.Dialog.v2/0.0.1920.1050/1920.0.1858.1080/-1858.0.1858.1080@0.0.1920.1050" timestamp="1575302712093" />
+    <state x="656" y="348" key="com.intellij.ide.util.TipDialog" timestamp="1575704945634">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="656" y="348" key="com.intellij.ide.util.TipDialog/0.0.1920.1050/1920.0.1858.1080/-1858.0.1858.1080@-1858.0.1858.1080" timestamp="1575224660614" />
+    <state x="656" y="348" key="com.intellij.ide.util.TipDialog/0.0.1920.1050/1920.0.1858.1080/-1858.0.1858.1080@0.0.1920.1050" timestamp="1575443023199" />
+    <state x="656" y="348" key="com.intellij.ide.util.TipDialog/1920.0.1920.1050/-1858.0.1858.1080/0.0.1920.1050@0.0.1920.1050" timestamp="1575704945634" />
+    <state x="2658" y="456" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1575704180267">
+      <screen x="1920" y="0" width="1920" height="1050" />
+    </state>
+    <state x="2658" y="456" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/1920.0.1920.1050/-1858.0.1858.1080/0.0.1920.1050@1920.0.1920.1050" timestamp="1575704180267" />
+  </component>
+</project>

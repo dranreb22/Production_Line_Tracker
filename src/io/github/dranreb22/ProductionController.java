@@ -1,5 +1,6 @@
 package io.github.dranreb22;
 
+import java.sql.Array;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import javafx.collections.FXCollections;
@@ -63,6 +64,7 @@ public class ProductionController {
 
   private DatabaseManager db = new DatabaseManager();
   private ArrayList<ProductionRecord> recordList = new ArrayList<>();
+  private ArrayList<ProductionRecord> initialList = new ArrayList<>();
 
   /**
    * <p>
@@ -86,9 +88,15 @@ public class ProductionController {
     observableList = FXCollections.observableArrayList(db.getAvailableProducts());
     tbvExistingProducts.setItems(observableList);
     lvwProductOption.setItems(observableList);
-    lvwProductOption.getSelectionModel().selectFirst();
+    initialList = db.getRecordedProducts();
+    loadInitialProducts();
     db.closeDB();
     tbpProduction.getSelectionModel().select(tabEmployeeRegistration);
+  }
+  private void loadInitialProducts(){
+    for (ProductionRecord record: initialList){
+      txtProductionLog.appendText(record.toString());
+    }
   }
 
   @FXML
@@ -211,7 +219,7 @@ public class ProductionController {
             selectedItemType);
         String serialNumber = record.getSerialNumber();
 
-        db.addToProductionDB(selectedID, serialNumber);
+        db.addToProductionDB(selectedName, selectedID, serialNumber);
         recordList.add(record);
       }
       loadProductionLog(recordList);
@@ -226,6 +234,7 @@ public class ProductionController {
    */
   private void loadProductionLog(ArrayList<ProductionRecord> recordList) {
     txtProductionLog.clear();
+    loadInitialProducts();
     for (ProductionRecord productionRecord : recordList) {
       txtProductionLog.appendText(productionRecord.toString());
     }
