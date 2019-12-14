@@ -49,6 +49,7 @@ class ProductionRecord {
    * Production Record constructor enables the program to assign values to the variables of the
    * object.
    *
+   * @param prodName     the name of the product from the database.
    * @param productID    The ID of the product being produced.
    * @param serialNumber The serial number of the items created depending on type.
    * @param dateProduced The date of the item being produced (current date/time).

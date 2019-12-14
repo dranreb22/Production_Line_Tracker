@@ -19,6 +19,7 @@ public class Product implements Item {
   /**
    * Constructor of product allowing user input of parameters name, manufacturer, and itemType.
    *
+   * @param id           id of the product from the database.
    * @param name         name of product.
    * @param manufacturer manufacturer of product.
    * @param itemType     itemType of product.
