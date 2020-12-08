@@ -88,7 +88,7 @@ public class ProductionController {
     createList();
     loadInitialProducts();
     db.closeDB();
-    tbpProduction.getSelectionModel().select(tabEmployeeRegistration);
+    tbpProduction.getSelectionModel().select(tabEmployeeRegistration); 
   }
 
   public void createList(){
