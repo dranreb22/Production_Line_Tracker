@@ -88,7 +88,7 @@ public class ProductionController {
     createList();
     loadInitialProducts();
     db.closeDB();
-    tbpProduction.getSelectionModel().select(tabEmployeeRegistration); 
+    tbpProduction.getSelectionModel().select(tabEmployeeRegistration);
   }
 
   public void createList(){
@@ -175,13 +175,16 @@ public class ProductionController {
       Product product = new Widget(Product.getNumberOfProducts(), prodName, prodMan,
           ItemType.valueOf((chosenItem)));
       observableList.add(product);
-      txtManufacturer.setPromptText("");
-      txtProductName.setPromptText("");
-      txtProductName.clear();
-      txtManufacturer.clear();
+      clearText();
     }
   }
 
+  public void clearText(){
+    txtManufacturer.setPromptText("");
+    txtProductName.setPromptText("");
+    txtProductName.clear();
+    txtManufacturer.clear();
+  }
   /**
    * Capitalizes the first letter and ensures the remainder of the word is lower cased. Only to be
    * used with 1 word at a time.
