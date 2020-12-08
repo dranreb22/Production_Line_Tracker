@@ -38,38 +38,6 @@ public class AudioPlayer extends Product implements MultimediaControl {
   }
 
   /**
-   * Plays next song in track.
-   */
-  @Override
-  public void play() {
-    System.out.println("Playing");
-  }
-
-  /**
-   * Stops song that is currently playing.
-   */
-  @Override
-  public void stop() {
-    System.out.println("Stopping");
-  }
-
-  /**
-   * Plays previous song.
-   */
-  @Override
-  public void previous() {
-    System.out.println("Previous");
-  }
-
-  /**
-   * Plays next song.
-   */
-  @Override
-  public void next() {
-    System.out.println("Next");
-  }
-
-  /**
    * toString method returns a formatted String of audio formats and playlist formats for the
    * player.
    *
