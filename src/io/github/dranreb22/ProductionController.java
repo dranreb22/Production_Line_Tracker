@@ -126,13 +126,17 @@ public class ProductionController {
 
       txtEmployeeLog.setText(employee.toString());
       tbpProduction.getSelectionModel().select(tabEmployee);
-      txtFirstName.clear();
-      txtFirstName.setPromptText("");
-      txtLastName.clear();
-      txtLastName.setPromptText("");
-      txtPassword.clear();
-      txtPassword.setPromptText("");
+      clearEmployee();
     }
+  }
+
+  public void clearEmployee(){
+    txtFirstName.clear();
+    txtFirstName.setPromptText("");
+    txtLastName.clear();
+    txtLastName.setPromptText("");
+    txtPassword.clear();
+    txtPassword.setPromptText("");
   }
 
   /**
@@ -175,11 +179,11 @@ public class ProductionController {
       Product product = new Widget(Product.getNumberOfProducts(), prodName, prodMan,
           ItemType.valueOf((chosenItem)));
       observableList.add(product);
-      clearText();
+      clearProdLineText();
     }
   }
 
-  public void clearText(){
+  public void clearProdLineText(){
     txtManufacturer.setPromptText("");
     txtProductName.setPromptText("");
     txtProductName.clear();
