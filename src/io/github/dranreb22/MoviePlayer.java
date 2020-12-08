@@ -1,7 +1,5 @@
 package io.github.dranreb22;
 
-import io.github.dranreb22.interfaces.MultimediaControl;
-
 /**
  * Class MoviePlayer extends Product and implements MultimediaControl; meant to serve as a type of
  * product to be created based on ItemTypes chosen.
@@ -9,7 +7,7 @@ import io.github.dranreb22.interfaces.MultimediaControl;
  * @author Bernard Georges 9/26/2019
  */
 
-public class MoviePlayer extends Product implements MultimediaControl {
+public class MoviePlayer extends Product{
 
   private final Screen screen;
   private final MonitorType monitorType;

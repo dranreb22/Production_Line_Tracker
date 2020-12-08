@@ -1,6 +1,5 @@
 package io.github.dranreb22;
 
-import io.github.dranreb22.interfaces.MultimediaControl;
 
 /**
  * Class AudioPlayer extends Product and is meant to serve as a type of product to be created based
@@ -9,7 +8,7 @@ import io.github.dranreb22.interfaces.MultimediaControl;
  * @author Bernard Georges 9/26/2019
  */
 
-public class AudioPlayer extends Product implements MultimediaControl {
+public class AudioPlayer extends Product {
 
   private final String supportedAudioFormats;
   private final String supportedPlaylistFormats;
