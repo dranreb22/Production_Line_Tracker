@@ -76,10 +76,6 @@ class ProductionRecord {
   ProductionRecord(String prodName, String manufacturer, int id, ItemType itemType)
       throws SQLException {
     this.prodName = prodName;
-    int auProductionCount = getCountOfAU();
-    int amProductionCount = getCountOfAM();
-    int viProductionCount = getCountOfVI();
-    int vmProductionCount = getCountOfVM();
     String firstThree;
     if (manufacturer.length() == 0) {
       firstThree = "XXX";
@@ -98,18 +94,18 @@ class ProductionRecord {
     // switch statement to set the serial number specifically to the next value of its item type.
     switch (itemCode) {
       case "AU":
-        lastFive = String.format("%05d", ++auProductionCount);
+        lastFive = String.format("%05d", 1 + getCountOfAU());
 
         break;
       case "AM":
-        lastFive = String.format("%05d", ++amProductionCount);
+        lastFive = String.format("%05d", 1 + getCountOfAM());
         break;
       case "VI":
-        lastFive = String.format("%05d", ++viProductionCount);
+        lastFive = String.format("%05d", 1 +getCountOfVI());
 
         break;
       case "VM":
-        lastFive = String.format("%05d", ++vmProductionCount);
+        lastFive = String.format("%05d", 1 + getCountOfVM());
         break;
       default:
         lastFive = "error";
@@ -118,7 +114,7 @@ class ProductionRecord {
 
     //adds the values of all 4 item types; stores them as production number.
     productionNumber =
-        auProductionCount + amProductionCount + viProductionCount + vmProductionCount;
+        getCountOfAU() + getCountOfAM() + getCountOfVI() + getCountOfVM();
     serialNumber = firstThree + itemCode + lastFive;
     this.productID = id;
     this.dateProduced = new Date();
