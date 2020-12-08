@@ -214,11 +214,6 @@ public class ProductionController {
       lblNotSelected.setText("Please select an Item!");
       lblNotSelected.setVisible(true);
     } else {
-      ItemType selectedItemType = lvwProductOption.getSelectionModel().getSelectedItem()
-          .getItemType();
-      String selectedManufacturer = lvwProductOption.getSelectionModel().getSelectedItem()
-          .getManufacturer();
-      String selectedName = lvwProductOption.getSelectionModel().getSelectedItem().getName();
       int selectedID = lvwProductOption.getSelectionModel().getSelectedItem().getId();
       //list view item wasn't properly converting to an int even though it was an int already
       //converted to an int then converted by to an int
@@ -226,19 +221,31 @@ public class ProductionController {
 
       int numberOfItems = Integer.parseInt(String.valueOf(cmbQuantity.getValue()));
 
-      for (int i = 0; i < numberOfItems; i++) {
-        ProductionRecord record = new ProductionRecord(selectedName, selectedManufacturer, intID,
-            selectedItemType);
-        String serialNumber = record.getSerialNumber();
+      String selectedName = lvwProductOption.getSelectionModel().getSelectedItem().getName();
 
-        db.addToProductionDB(selectedName, selectedID, serialNumber);
-        recordList.add(record);
+      for (int i = 0; i < numberOfItems; i++) {
+        ProductionRecord record = getRecord(selectedName, intID, selectedID);
       }
       loadProductionLog(recordList);
       if (lblNotSelected.isVisible()) {
         lblNotSelected.setVisible(false);
       }
     }
+  }
+
+  private ProductionRecord getRecord(String selectedName, int intID, int selectedID) throws SQLException {
+    ItemType selectedItemType = lvwProductOption.getSelectionModel().getSelectedItem()
+        .getItemType();
+    String selectedManufacturer = lvwProductOption.getSelectionModel().getSelectedItem()
+        .getManufacturer();
+    ProductionRecord record = new ProductionRecord(selectedName, selectedManufacturer, intID,
+        selectedItemType);
+    String serialNumber = record.getSerialNumber();
+
+    db.addToProductionDB(selectedName, selectedID, serialNumber);
+
+    recordList.add(record);
+    return record ;
   }
 
   /**
