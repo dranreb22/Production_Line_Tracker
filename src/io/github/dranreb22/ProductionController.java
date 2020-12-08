@@ -85,14 +85,19 @@ public class ProductionController {
     cmbQuantity.setValue(1);
 
     db.initializeDb();
-    observableList = FXCollections.observableArrayList(db.getAvailableProducts());
-    tbvExistingProducts.setItems(observableList);
-    lvwProductOption.setItems(observableList);
-    initialList = db.getRecordedProducts();
+    createList();
     loadInitialProducts();
     db.closeDB();
     tbpProduction.getSelectionModel().select(tabEmployeeRegistration);
   }
+
+  public void createList(){
+    observableList = FXCollections.observableArrayList(db.getAvailableProducts());
+    tbvExistingProducts.setItems(observableList);
+    lvwProductOption.setItems(observableList);
+    initialList = db.getRecordedProducts();
+  }
+
   private void loadInitialProducts(){
     for (ProductionRecord record: initialList){
       txtProductionLog.appendText(record.toString());
